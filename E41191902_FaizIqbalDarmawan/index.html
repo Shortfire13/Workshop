@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Form</title>
+</head>
+<body>
+    <form action="target.html">
+        <fieldset>
+            <legend><h2>Form Data Kasir </h2></legend>
+            <table>
+            <p>
+            <tr>
+                <td><label>ID KASIR</label></td>
+                <td> : <input type="text" name="ID" placeholder="ID      "></td>
+            </tr>
+            </p>
+            <p>
+            <tr>
+                <td><label>NAMA KASIR</label></td>
+                <td> : <input type="text" name="karyawan" placeholder="NAMA       "></td>
+            </p>
+            <p>
+                <tr>
+                <td><label>ALAMAT KASIR</label></td>
+                <td> : <select name="alamat">
+                    <option value="jember">JEMBER</option>
+                    <option value="kediri">KEDIRI</option>
+                    <option value="bondowoso">BONDOWOSO</option>
+                    <option value="banyuwangi">BANYUWANGI</option>
+                    <option value="situbondo">SITUBONDO</option>
+                </select></td>
+                 </tr>
+            </p>
+
+            <p>
+                <tr>
+                <td><label>TELEPON KASIR</label></td>
+                <td> : <input type="text" name="telp" placeholder="Telp"/></td>
+                </tr>
+            </p>
+
+            <p>
+                <tr>
+                <td><label>STATUS</label>
+                <td> : <input type="radio" name="kelamin" value="pria" checked />PRIA
+                <input type="radio" name="kelamin" value="wanita" />WANITA</td>
+                </tr>
+            </p>
+            <p>
+                <tr>
+                <td><label>USERNAME</label></td>
+                <td> : <input type="text" name="nama" placeholder="User Name"></td>
+                </tr>
+            </p>
+            <p>
+                <tr>
+                <td><label>PASSWORD</label></td>
+                <td> : <input type="password" name="password" placeholder="*************"></td>
+                </tr>
+            </p>
+            <p>
+                <tr>
+                <td><input type="submit" value="Kirim"></td>
+                </tr>
+            </p>
+        </table>
+        </fieldset>
+    </form>
+</body>
+</html>
