@@ -5,39 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body{
+        background-image: url("Wallpaper.png");
+    }
+    legend{
+        color: aquamarine;
+    }
+    td{
+        font-family: arial;
+        color: aquamarine;
+    }
+    input{
+        border-radius: 25px;
+    }
+</style>
 <body>
     <form action="target.html">
         <fieldset>
             <table>
             <legend>KASIR</legend>
-            <p>
-                <label>ID Kasir :</label>
-                <input type="text" name="ID" placeholder="">
-            </p>
-            <p>
-                <label>Nama Karyawan :</label>
-                <input type="text" name="karyawan" placeholder="">
-            </p>
-            <p>
-                <label>Tanggal :</label>
-                <input type="date" name="tanggal">
-            </p>
-            <p>
-                <label>Jenis Kelamin :</label>
-                <input type="radio" name="kelamin" value="laki-laki" checked />laki-laki
-                <input type="radio" name="kelamin" value="perempuan" />perempuan
-            </p>
-            <p>
-                <label>Username :</label>
-                <input type="text" name="nama" placeholder="">
-            </p>
-            <p>
-                <label>Password :</label>
-                <input type="password">
-            </p>
-            <p>
-                <input type="submit" value="Konfirmasi">
-            </p>
+            <tr>
+                <td>ID Kasir</td>
+                <td> :</td>
+                <td>
+                    <input type="text" name="ID">
+                </td>
+            </tr>
+            <tr>
+                <td>Nama Karyawan</td>
+                <td> :</td>
+                <td>
+                    <input type="text" name="karyawan" placeholder="">
+                </td>
+            </tr>
+            <tr>
+                <td>Tanggal</td>
+                <td> :</td>
+                <td>
+                    <input type="date" name="tanggal">
+                </td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin</td>
+                <td> :</td>
+                <td>
+                    <input type="radio" name="kelamin" value="laki-laki" checked />laki-laki
+                    <input type="radio" name="kelamin" value="perempuan" />perempuan
+                </td>
+            </tr>
+            <tr>
+                <td>Username</td>
+                <td> :</td>
+                <td>
+                    <input type="text" name="nama" placeholder="">
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td> :</td>
+                <td>
+                    <input type="password">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Konfirmasi">
+                </td>
+            </tr>
             </table>
         </fieldset>
     </form>
