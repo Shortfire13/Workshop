@@ -1,0 +1,53 @@
+body {
+  padding: 100px;
+  background: turquoise;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  
+}
+
+.avatar {
+  width: 100px;
+}
+
+
+
+
+.main {
+  width: 800px;
+  height: 520px;
+  background-color: white;
+  margin: 0 auto;
+  padding-top: 20px;
+  border-radius: 8px;
+  border: 1px solid turquoise;
+}
+
+.h1 {
+text-align: center;
+font-size: 30px;
+margin: 0;
+font-weight: bold;
+color: yellow;
+
+}
+.text{
+  text-align: center;
+  font-size: 15px;
+  margin: 0;
+  color: black;
+
+}
+.bottom {
+padding-top: 200px;
+}
+p {
+  margin: 0 auto;
+  padding-top: 20px;
+  width: 450px;
+  height: auto;
+  color: rgb(15, 160, 145);
+}
+
+
+
