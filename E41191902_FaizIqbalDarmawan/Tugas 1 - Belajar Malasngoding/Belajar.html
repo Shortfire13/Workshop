@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Belajar HTML</title>
+</head>
+<body>
+<h2>Belajar Paragraf</h2>
+<p align="Left">Percobaan Paragraf Pertama : Left</p>
+<p align="Right">Percobaan Paragraf Kedua : Right</p>
+<p align="Center">Percobaan Paragraf Ketiga : Center</p>
+<p align="Justify">Percobaan Paragraf Keempat : Justify</p> </br>
+
+Cara penulisan lain dengan menggunakan < /br> </br>
+Ini paragraf kedua </br>
+</br>
+
+
+            <h2>Belajar Tabel</h2>
+            <table border="1">
+                <tr>
+                    <th>No</th>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Prodi</th>
+                    <th>Golongan</th>
+                </tr>
+                <tr>
+                    <td>1.</td>
+                    <td>E41191458</td>
+                    <td>Hanif Satrio R.</td>
+                    <td>Teknik Informatika</td>
+                    <td>C</td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td>E41191593</td>
+                    <td>M. Geofany Hermawan</td>
+                    <td>Teknik Informatika</td>
+                    <td>C</td>
+                </tr>
+                <tr>
+                    <td>3.</td>
+                    <td>E41191637</td>
+                    <td>M. Shobri Arifin</td>
+                    <td>Teknik Informatika</td>
+                    <td>C</td>
+                </tr>
+                <tr>
+                    <td>4.</td>
+                    <td>E41191683</td>
+                    <td>Aulia Novrin</td>
+                    <td>Teknik Informatika</td>
+                    <td>C</td>
+                </tr>
+
+                <tr>
+                    <td>5.</td>
+                    <td>E41191902</td>
+                    <td>Faiz Iqbal D</td>
+                    <td>Teknik Informatika</td>
+                    <td>C</td>
+                </tr>
+            </table> </br>
+            </br>
+
+<h2>Belajar Hyperlink</h2>
+
+Ini adalah contoh alamat absolute :  <a href="https://www.malasngoding.com/">KLIK DISINI</a> </br>
+Dan berikut merupakan contoh alamat alternatif : <a href="Tabel.html">KLIK DISINI</a> </br> </br>
+
+            <h2>Belajar Membuat List</h2>
+
+            <li>Belajar Membuat Paragraf</li>
+            <li>Belajar Membuat Tabel</li></br>
+
+            <h4>Berikut Ordered list</h4>
+            <p>Ordered List berfungsi untuk menampilkan list dalam bentuk huruf atau angka</p>
+
+            <ol>
+                <li>Belajar Membuat Hyperlink</li>
+                <li>Belajar Membuat List</li>
+                <li>Belajar Membuat Atribut Form pada HTML</li>
+            </ol>
+
+            <h4>Berikut Unordered list</h4>
+            <p>Unordered List berfungsi untuk menampilkan list dalam bentuk simbol bulatan atau kotak</p>
+
+            <ul>
+                <li>Belajar Menampilkan Gambar</li>
+                <li>Belajar Menghubungkan HTML dengan CSS</li>
+                <li>Belajar tentang Class dan ID</li>
+            </ul> </br>
+
+<h2>Belajar Atribut Form</h2>
+<ol>
+    <li><h4>Atribut Value</h4></li>
+    <p>Atribut value merupakan nilai awal yang akan ditampilkan pada suatu halaman</p>
+
+    <form>
+        Nama Depan : <input type="text" value="Nama"></br>
+        Nama Tengah : <input type="text" value="Tengah"></br>
+        Nama Belakang : <input type="text" value="">
+    </form></br>
+    
+    <li><h4>Atribut Readonly</h4></li>
+    <p>Atribut readonly menyebabkan nilai value hanya bisa dibaca dan tidak dapat diubah</p>
+
+    <form>
+        Nama Depan : <input type="text" value="Nama" readonly></br>
+        Nama Tengah : <input type="text" value="Tengah" readonly></br>
+        Nama Belakang : <input type="text" value="" >
+    </form></br>
+
+    <li><h4>Atribut Disabled</h4></li>
+    <p>Atribut disabled digunakan untuk menonaktifkan inputan</p>
+
+    <form>
+        Nama Depan : <input type="text" value="Nama" disabled></br>
+        Nama Tengah : <input type="text" value="Tengah" disabled></br>
+        Nama Belakang : <input type="text" value="" >
+    </form></br>
+
+    <li><h4>Atribut Size</h4></li>
+    <p>Atribut ini digunakan untuk mengubah  atau mengatur lebar kotak input</p>
+
+    <form>
+        Nama Depan : <input type="text" value="Nama" size="50"></br>
+        Nama Tengah : <input type="text" value="Tengah" size="30"></br>
+        Nama Belakang : <input type="text" value="" size="10">
+    </form></br>
+
+    <li><h4>Atribut Maxlenght</h4></li>
+    <p>Atribut ini digunakan untuk membatasi menentukan jumlah inputan</p>
+
+    <form>
+        Nama Depan : <input type="text" value="Nama" maxlength="15"></br>
+        Nama Tengah : <input type="text" value="Tengah" maxlength="10"></br>
+        Nama Belakang : <input type="text" value="" maxlength="5">
+    </form></br>
+
+    <li><h4>Atribut List</h4></li>
+    <p>Atribut ini digunakan untuk menampilkan list pada form inputan</p>
+
+    <form>
+        <input list="Provinsi" name="Indonesia">
+        <datalist id="Provinsi">
+            <option value="Jawa Timur">
+            <option value="Jawa Tengah">
+            <option value="Jawa Barat">
+        </datalist>
+    </form></br>
+
+    <li><h4>Atribut Min dan Max</h4></li>
+    <p>Atribut ini digunakan untuk menentukan nilai minimum dan maksimum untuk lemen < input></p>
+
+    <form>
+        <input type="date" name="day" max="2000-12-31"></br>
+        <input type="date" name="day" min="2001-12-31">
+    </form></br>
+
+    <li><h4>Atribut Placeholder</h4></li>
+    <p>Atribut ini digunakan sebagai pengganti label field</p>
+
+    <form>
+    <input type="text" value="" placeholder="Masukkan Nama....">
+    </form></br>
+</ol>
+
+<h2>Belajar Menampilkan Gambar</h2>
+<img src="Comparison 4.png" height="400 px" width="400 px">
+<p>Atau deapat juga menggunakan CSS</p>
+<img class="gambar" src="Comparison 4.png">
+
+
+</body>
+</html>
