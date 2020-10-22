@@ -258,6 +258,7 @@
                         <input type="radio" class="form-check-input" name="optradio" value="perempuan">perempuan
                     </label>
                     </div>
+                    
                     <div class="form-group">
                     <select class="form-control" id="agama" name="agama">
                     <option>Islam</option>
@@ -274,7 +275,7 @@
                     $username = @$_GET['username'];
                     $email = @$_GET['email'];
                     $password = @$_GET['password'];
-                   $text = @$_GET['text'];
+                    $text = @$_GET['text'];
                     
                     if($name){
                         echo " <br><strong>Nama : </strong> {$name} <br>";
