@@ -294,7 +294,7 @@
                         $agama = $_GET['agama'];
                         echo " <br><strong>Agama : </strong> {$agama} <br>";
                     } if($text){
-                        echo " <br><strong>text : </strong> {$text} <br>";
+                        echo " <br><strong>Biografi : </strong> {$text} <br>";
                     }
 
                     ?>
