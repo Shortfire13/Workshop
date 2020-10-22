@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <title>FORM KASIR</title>
+</head>
+<body>
+    <center>
+    <div class="header">
+        <h2>FORM DATA KASIR</h2>
+    </div>
+    <div class="main">
+        <form action="output.html" method="POST">
+            <table  cellpadding="10">
+            <tr>
+                <td><label>ID KASIR</label></td>
+                <td>:</td>
+                <td><input type="text" name="id_kasir" placeholder="ID KASIR"></td>
+            </tr>
+            <tr>
+                <td><label>NAMA KASIR</label></td>
+                <td>:</td>
+                <td><input type="text" name="nama_user" placeholder="NAMA KASIR"></td>
+            </tr>
+            <tr>
+                <td><label>ALAMAT</label></td>
+                <td>:</td>
+                <td><textarea cols="30" rows="5"></textarea></td>
+            </tr>
+            <tr>
+                <td><label>NO.TELEPON</label></td>
+                <td>:</td>
+                <td><input type="tel" name="telepon" pattern="^\{13}$" placeholder="NO.TELEPON"></td>
+            </tr>
+            <tr>
+                <td><label>STATUS</label></td>
+                <td>:</td>
+                <td><input type="radio" name="jenis_kelamin" value="Laki-Laki">Laki-Laki <br>
+                <input type="radio" name="jenis_kelamin" value="Perempuan">Perempuan</td>
+            </tr>
+            <tr>
+                <td><label>USERNAME</label></td>
+                <td>:</td>
+                <td><input type="text" name="user_name" placeholder="Username"></td>
+            </tr>
+            <tr>
+                <td><label>PASSWORD</label></td>
+                <td>:</td>
+                <td><input type="password" name="password" placeholder="Password"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="submit" value="Kirim"></td>
+                <td><input type="reset" name="reset" value="Reset"></td>
+            </tr>
+             
+        </table>
+        </form>
+    </div>
+</center>
+</body>
+</html>
