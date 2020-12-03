@@ -1,12 +1,14 @@
+
 <?php
   session_start();
-  if(!isset($_SESSION['email'])){
+  if(empty($_SESSION['email'])){
     header("location:login.php");
   }
 
 
 ?>
 
+ 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,6 +85,7 @@
                 </form>
               </div>
             </li>
+
 
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
@@ -223,19 +226,7 @@
 
         </nav>
         <!-- End of Topbar -->
-
-   
-      </div>
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
-          </div>
-        </div>
-        <?php
+<?php
         if(isset($_GET['pesan'])){
           $pesan = $_GET['pesan'];
           if ($pesan == "berhasil"){
@@ -249,6 +240,20 @@
         }
         
         ?>
+   
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2020</span>
+          </div>
+        </div>
+
+
+       
       </footer>
       <!-- End of Footer -->
 

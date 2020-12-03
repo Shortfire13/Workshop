@@ -1,16 +1,21 @@
+
+
 <?php
+    session_start();
+    include 'koneksi.php';
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $email_saya = "geocom@mail.com";
-    $password_saya = 1;
-    if((strcasecmp($email_saya,$email) == 0)&& ($password_saya==$password))
-    {
-        session_start();
-        $_SESSION['email'] = $email;
-        header("location:index.php?pesan=berhasil");
-    }
-    
-    else
-      {  header("location:login.php?pesan=gagal");}
+    $querysql = mysqli_query($koneksi,"SELECT * FROM user WHERE email='$email'");
+    $data = mysqli_fetch_array($querysql);
 
-?>
+    if($email == $data['email']){
+        if($password == $data['password']){
+            $_SESSION['email'] = $email;
+            header("location:index.php?pesan=berhasil");
+        } else {
+            header("location:login.php?pesan=passwordSalah");
+        }
+     }else{
+            header("location:login.php?pesan=emailSalah");
+        }
+    ?>
