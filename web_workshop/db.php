@@ -1,8 +1,7 @@
-<?php 
-	$hostname = 'localhost';
-	$username = 'root';
-	$password = '';
-	$dbname   = 'db_bukawarung';
+<?php
+$koneksi = mysqli_connect("localhost","root","","db_sisegar");
 
-	$conn = mysqli_connect($hostname, $username, $password, $dbname) or die ('Gagal Terhubung ke database');
+if (mysqli_connect_error()) {
+    echo "Koneksi database gagal :".mysqli_connect_error();
+}
 ?>
