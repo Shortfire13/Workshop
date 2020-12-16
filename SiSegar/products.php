@@ -42,13 +42,13 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.php" class="logo">Food Store <em> Website</em></a>
+                        <a href="index.php" class="logo">Si Segar<em> Website</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="products.php" class="active">Products</a></li>
-                            <li><a href="checkout.php">Checkout</a></li>
+                            <li><a href="index.php" class="active">Home</a></li>
+                            <li><a href="products.php">Products</a></li>
+                            <li><a href="checkout.php">Login</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
                               
@@ -80,8 +80,9 @@
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Our <em>Products</em></h2>
-                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+                        <h2>Kesegaran Bagimu Adalah</h2>
+                        <h2><em>Kepuasan Kami</em></h2>
+                        <p>Dapatkan Bahan-Bahan Masakmu Disini !!</p>
                     </div>
                 </div>
             </div>
@@ -99,19 +100,39 @@
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="assets/images/product-1-720x480.jpg" alt="">
+                            <img src="assets/images/sawi-putih.png" alt="">
                         </div>
                         <div class="down-content">
                             <span>
-                                <del><sup>$</sup>15.00</del> <sup>$</sup>17.00
+                                <del><sup>Rp.</sup>10.000/kg</del> <sup>Rp.</sup>7.000/kg
                             </span>
 
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+                            <h4>Sawi Putih</h4>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, libero, reprehenderit? Aliquam vel, voluptate placeat, porro nemo impedit reprehenderit eligendi.</p>
+                            <p>Sawi putih dikenal sebagai sayuran olahan dalam masakan Tionghoa; karena itu disebut juga sawi cina. Sebutan lainnya adalah petsai. Disebut sawi putih karena daunnya yang cenderung kuning pucat dan tangkai daunnya putih. Sawi putih dapat dilihat penggunaannya pada asinan, dalam capcai, atau pada sup bening.</p>
 
-                            <ul class="social-icons">
-                                <li><a href="product-details.php">+ Order</a></li>
+                            <ul class="social-icons btn">
+                                <li><a href="product-details.php">Beli</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="trainer-item">
+                    <div class="image-thumb">
+                            <img src="assets/images/selada.jpg" alt="">
+                        </div>
+                        <div class="down-content">
+                            <span>
+                                <del><sup>Rp.</sup>10.000/kg</del> <sup>Rp.</sup>7.000/kg
+                            </span>
+
+                            <h4>Selada</h4>
+
+                            <p>Selada atau daun sla adalah tumbuhan sayur yang biasa ditanam di daerah beriklim sedang maupun daerah tropika. Kegunaan utama adalah sebagai salad. Produksi selada dunia diperkirakan sekitar 3 juta ton yang ditanam pada lebih dari 300.000 ha lahan</p>
+
+                            <ul class="social-icons btn">
+                                <li><a href="product-details.php">Beli</a></li>
                             </ul>
                         </div>
                     </div>
@@ -119,39 +140,20 @@
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="assets/images/product-2-720x480.jpg" alt="">
+                            <img src="assets/images/wortel.png" alt="">
                         </div>
                         <div class="down-content">
                             <span>
-                                <del><sup>$</sup>15.00</del> <sup>$</sup>17.00
+                                <del><sup>Rp.</sup>10.000/kg</del> <sup>Rp.</sup>7.000/kg
                             </span>
 
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+                            <h4>Wortel</h4>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, libero, reprehenderit? Aliquam vel, voluptate placeat, porro nemo impedit reprehenderit eligendi.</p>
-
-                            <ul class="social-icons">
-                                <li><a href="product-details.php">+ Order</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-3-720x480.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>
-                                <del><sup>$</sup>15.00</del> <sup>$</sup>17.00
-                            </span>
-
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, libero, reprehenderit? Aliquam vel, voluptate placeat, porro nemo impedit reprehenderit eligendi.</p>
-
-                            <ul class="social-icons">
-                                <li><a href="product-details.php">+ Order</a></li>
+                           
+                            <p>Wortel adalah tumbuhan biennial yang menyimpan karbohidrat dalam jumlah besar untuk tumbuhan tersebut berbunga pada tahun kedua. Batang bunga tumbuh setinggi sekitar 1 m, dengan bunga berwarna putih, dan rasa yang manis langu. Bagian yang dapat dimakan dari wortel adalah bagian umbi atau akarnya.</p>
+                            
+                            <ul class="social-icons btn">
+                                <li><a href="product-details.php">Beli</a></li>
                             </ul>
                         </div>
                     </div>
