@@ -1,3 +1,12 @@
+<?php
+  session_start();
+  
+  $koneksi = new mysqli('localhost','root','','db_sisegar');
+
+  echo "<pre>";
+  print_r($_SESSION['keranjang']);
+  echo "</pre>";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,7 +88,7 @@
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Easy <em>Checkout</em></h2>
+                        <h2>Keranjang <em>Belanja</em></h2>
                         <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
                     </div>
                 </div>
@@ -96,6 +105,30 @@
                     <div class="contact-form">
                         <form id="contact" action="" method="post">
                            <div class="row">
+                             <table class="table table-border text-center">
+                               <thead>
+                                 <tr>
+                                   <th class="text-center">No</th>
+                                   <th class="text-center">Id Produk</th>
+                                   <th class="text-center">Nama Produk</th>
+                                   <th class="text-center">Jumlah Beli</th>
+                                   <th class="text-center">SubTotal</th>
+                                 </tr>
+                               </thead>
+                               <tbody>
+                                 <?php foreach ($_SESSION['keranjang']  as $id_produk => $jumlah); ?>
+                                 <?php 
+                                 $ambil = $koneksi->query("SELECT * FROM barang Where id_barang = $id_produk");
+                                 $pecah = $ambil->fetch_assoch();
+                                 echo "<pre>";
+                                 print_r($pecah);
+                                 echo "</pre>";
+                                 ?>
+                                 <tr>
+                                   <td></td>
+                                 </tr>
+                               </tbody>
+                             </table>
                                 <!-- <div class="col-sm-6 col-xs-12">
                                      <label>Title:</label>
                                      <select data-msg-required="This field is required.">
@@ -109,7 +142,7 @@
                                           <option value="prof">Prof.</option>
                                           <option value="rev">Rev.</option>
                                      </select>
-                                </div> -->
+                                </div> 
                                 <div class="col-sm-6 col-xs-12">
                                      <label>Nama:</label>
                                      <input type="text" require>
@@ -153,17 +186,17 @@
                                           <option value="cash">Tunai</option>
                                      </select>
                                 </div>
-                           </div>
+                           </div>-->
                             
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="main-button">
                                         <div class="float-left">
-                                            <a href="#">Back</a>
+                                            <a href="index.php">Lanjut Belanja</a>
                                         </div>
 
-                                        <div class="float-right">
-                                            <a href="#">Finish</a>
+                                        <div class="float-right ml-4">
+                                            <a href="checkout.php">Checkout</a>
                                         </div>
                                     </div>
                                 </div>
@@ -173,73 +206,6 @@
 
                     <br>
                 </div>
-
-                <div class="col-md-4">
-                    <ul class="list-group list-group-no-border">
-                      <li class="list-group-item" style="margin:0 0 -1px">
-                         <div class="row">
-                            <div class="col-6">
-                                <strong>Sub-total</strong>
-                            </div>
-
-                            <div class="col-6">
-                                <h5 class="text-right">$ 128.00</h5>
-                            </div>
-                         </div>
-                      </li>
-
-                      <li class="list-group-item" style="margin:0 0 -1px">
-                         <div class="row">
-                            <div class="col-6">
-                                <strong>Extra</strong>
-                            </div>
-
-                            <div class="col-6">
-                                <h5 class="text-right">$ 0.00</h5>
-                            </div>
-                         </div>
-                      </li>
-
-                      <li class="list-group-item" style="margin:0 0 -1px">
-                         <div class="row">
-                            <div class="col-6">
-                                <strong>Tax</strong>
-                            </div>
-
-                            <div class="col-6">
-                                <h5 class="text-right">$ 10.00</h5>
-                            </div>
-                         </div>
-                      </li>
-
-                      <li class="list-group-item" style="margin:0 0 -1px">
-                         <div class="row">
-                            <div class="col-6">
-                                <h4><strong>Total</strong></h4>
-                            </div>
-
-                            <div class="col-6">
-                                <h4 class="text-right">$ 138.00</h4>
-                            </div>
-                         </div>
-                      </li>
-
-                      <li class="list-group-item" style="margin:0 0 -1px">
-                         <div class="row">
-                            <div class="col-6">
-                                <strong>Deposit</strong>
-                            </div>
-
-                            <div class="col-6">
-                                <h5 class="text-right">$ 10.00</h5>
-                            </div>
-                         </div>
-                      </li>
-                    </ul>
-
-                    <br>
-                </div>
-            </div>
         </div>
     </section>
 
