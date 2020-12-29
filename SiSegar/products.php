@@ -39,7 +39,7 @@
                         <ul class="nav">
                             <li><a href="index.php" class="active">Home</a></li>
                             <li><a href="products.php">Products</a></li>
-                            <li><a href="checkout.php">Login</a></li>
+                            <li><a href="login.php">Login</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
                               
@@ -82,27 +82,41 @@
     <!-- ***** Call to Action End ***** -->
 
     <!-- ***** Fleet Starts ***** -->
+
     <section class="section" id="trainers">
         <div class="container">
-            <br>
-            <br>
-            
+
             <div class="row">
+                  <div class="container">
+    <div class="search-box">
+  <form action="products.php" class="form-inline">
+    <input class="form-control mr-sm-3" type="search" name="cari" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline my-2 my-sm-0" type="submit">Search</button> 
+
+  </form>
+
+</div>
+</div>
             <?php
             include_once "koneksi/koneksi.php";
-            $produk = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id_produk DESC");
-            while ($data = mysqli_fetch_array($produk)) {
+            if (isset($_GET['cari'])) {
+                $cari = $_GET['cari'];
+                $query_mysql = mysqli_query($koneksi, "SELECT * FROM produk WHERE nama_produk LIKE '%$cari%'");
+            }else{
+                $query_mysql = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id_produk");
+            }
+            while ($data = mysqli_fetch_array($query_mysql)) {
             ?>
             
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="assets/images/sawi-putih.png">
+                            <img src="assets/images/<?php echo $data['foto_produk'] ?>">
                         </div>
                         <div class="down-content">  
                             <h4><?php echo $data['nama_produk']?></h4>
                             <h4>Rp.<?php echo $data['harga'] ?></h4>
-                            <p><?php echo $data['deskripsi'] ?></p>
+                            
                             <ul class="social-icons btn">
                                 <li><a href="product-details.php?id_produk=<?php echo $data['id_produk']; ?>">Beli</a></li>
                             </ul>

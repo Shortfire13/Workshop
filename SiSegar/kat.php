@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,9 +10,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
-    <title>Si Segar </title>
-
-    <script type="text/javascript" defer src="http://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+     <title>Si Segegar </title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
@@ -19,23 +18,12 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-
     </head>
     
     <body>
     
     <!-- ***** Preloader Start ***** -->
-    <div id="js-preloader" class="js-preloader">
-      <div class="preloader-inner">
-        <span class="dot"></span>
-        <div class="dots">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </div>
+
     <!-- ***** Preloader End ***** -->
     
     
@@ -64,10 +52,6 @@
                                 </div>
                             </li>
                             <li><a href="contact.php">Contact</a></li> 
-                            <li></li>
-                            <li></li>
-                            <li><a href="register.php">Daftar</a></li>
-                            <li><a href="login.php">Masuk</a></li>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -80,86 +64,17 @@
     </header>
     <!-- ***** Header Area End ***** -->
 
-    <!-- ***** Main Banner Area Start ***** -->
-    <div class="main-banner" id="top">
-        <video autoplay muted loop id="bg-video">
-            <source src="assets/images/video.mp4" type="video/mp4" />
-        </video>
-
-        <div class="video-overlay header-text">
-            
-            <div class="caption">
-              
-                <h2>Best <em>Food store</em> in town</h2>
-                
-            </div>
-        </div>
-    </div>
-    <!-- ***** Main Banner Area End ***** -->
-
-   <!-- ***** Cars Starts ***** -->
-    <section class="section" id="trainers">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="section-heading">
-                        <h2>Our <em>Foods</em></h2>
-                        <img src="assets/images/line-dec.png" alt="">
-        </div>
-  <div class="container">
-    <div class="search">
-  <form action="products.php" class="form-inline">
-    <input class="form-control mr-sm-3" type="search" name="cari" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline my-2 my-sm-0" type="submit">Search</button> 
-  </form>
-</div>
-</div>
-             
-        <div class="row">
-            <?php
-            include_once "koneksi/koneksi.php";
-            $query_mysql = mysqli_query($koneksi, "SELECT * FROM kategori ORDER BY id_kategori");
-            while ($data = mysqli_fetch_array($query_mysql)) {
-            ?>
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                           <img src="assets/images/<?php echo $data['sampul'] ?>" alt="">
-                        
-                        </div>
-                        <a href="kat.php?kat=<?php echo $data['id_kategori']?>">
-                        <div class="down-content">
-                           <p><?php echo $data['nama_kategori']?></p>
-                        </div>
-                    </a>
-                    </div>
-                </div>
-                <?php } ?>
-            </div>
-            </div>
-
-            <br>
-
-            
-        </div>
-        <div class="main-button text-center">
-                <a href="products.php">View our products</a>
-            </div>
-    </section>
-    <!-- ***** Cars Ends ***** -->
-
-    
-
     <!-- ***** Call to Action Start ***** -->
     <section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="cta-content">
-                        <h2>Send us a <em>message</em></h2><br>
-                        <div class="main-button">
-                            <a href="contact.html">Contact us</a>
-                        </div>
+                        <br>
+                        <br>
+                        <h2>Kesegaran Bagimu Adalah</h2>
+                        <h2><em>Kepuasan Kami</em></h2>
+                        <p>Dapatkan Bahan-Bahan Masakmu Disini !!</p>
                     </div>
                 </div>
             </div>
@@ -167,20 +82,54 @@
     </section>
     <!-- ***** Call to Action End ***** -->
 
-    <!-- ***** Testimonials Item Start ***** -->
-    
-
+    <!-- ***** Fleet Starts ***** -->
+    <section class="section" id="trainers">
+        <div class="container">
+        
+            <div class="row">
+            <?php
+            include_once "koneksi/koneksi.php";
+            if(isset($_GET['kat'])){
+                $kategori = $_GET['kat'];
+                $mysqli_query = mysqli_query($koneksi,"SELECT a.id_produk,a.id_kategori,a.id_mitra,a.nama_produk,a.harga,a.stok,a.berat,a.foto_produk,a.deskripsi FROM produk a INNER JOIN kategori k ON a.id_kategori=k.id_kategori WHERE k.id_kategori='$kategori' ");
+            }
+            while ($data = mysqli_fetch_array($mysqli_query))
+             {
+            ?>
             
-    <!-- ***** Testimonials Item End ***** -->
+                <div class="col-lg-4">
+                    <div class="trainer-item">
+                        <div class="image-thumb">
+                              <img src="assets/images/<?php echo $data['foto_produk'] ?>" alt="">
+                        </div>
+                        <div class="down-content">  
+                            
+                            <h4><?php echo $data['nama_produk']?></h4>
+                            <h4>Rp.<?php echo $data['harga'] ?></h4>
+                           
+                            <ul class="social-icons btn">
+                                <li><a href="product-details.php">Beli</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <?php } ?>
+            <br>
+
+        </div>
+    </section>
+    <!-- ***** Fleet Ends ***** -->
+
     
     <!-- ***** Footer Start ***** -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p>
-                        Copyright © 2020 Sisegar Website
-                        
+                 
+               <p>
+                        Copyright © 2020 Company Name
+                        - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a>
                     </p>
                 </div>
             </div>
