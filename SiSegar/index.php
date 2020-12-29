@@ -52,7 +52,7 @@
                         <ul class="nav">
                             <li><a href="index.php" class="active">Home</a></li>
                             <li><a href="products.php">Products</a></li>
-                            <li><a href="checkout.php">Login</a></li>
+                            <li><a href="login.php">Login</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
                               

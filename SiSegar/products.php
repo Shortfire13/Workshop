@@ -39,7 +39,7 @@
                         <ul class="nav">
                             <li><a href="index.php" class="active">Home</a></li>
                             <li><a href="products.php">Products</a></li>
-                            <li><a href="checkout.php">Login</a></li>
+                            <li><a href="login.php">Login</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
                               
@@ -85,7 +85,7 @@
 
     <section class="section" id="trainers">
         <div class="container">
-<<<<<<< HEAD
+
             <div class="row">
                   <div class="container">
     <div class="search-box">
@@ -106,22 +106,12 @@
                 $query_mysql = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id_produk");
             }
             while ($data = mysqli_fetch_array($query_mysql)) {
-=======
-            <br>
-            <br>
-            
-            <div class="row">
-            <?php
-            include_once "koneksi/koneksi.php";
-            $produk = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id_produk DESC");
-            while ($data = mysqli_fetch_array($produk)) {
->>>>>>> 2e55b8dbcc1f4c74faaa47d97628bddbebcbcaa1
             ?>
             
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="assets/images/sawi-putih.png">
+                            <img src="assets/images/<?php echo $data['foto_produk'] ?>">
                         </div>
                         <div class="down-content">  
                             <h4><?php echo $data['nama_produk']?></h4>
