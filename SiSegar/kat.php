@@ -126,11 +126,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                 
-               <p>
-                        Copyright © 2020 Company Name
-                        - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a>
-                    </p>
+               <p>&copy Copyright SiSegar 2020</p>
                 </div>
             </div>
         </div>
