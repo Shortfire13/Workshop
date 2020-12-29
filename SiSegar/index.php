@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
-    <title>Si Segegar </title>
+    <title>Si Segar </title>
 
     <script type="text/javascript" defer src="http://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
@@ -50,7 +50,7 @@
                         <ul class="nav">
                             <li><a href="index.php" class="active">Home</a></li>
                             <li><a href="products.php">Products</a></li>
-                            <li><a href="checkout.php">Login</a></li>
+                            <li><a href="login.php">Login</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
                               
