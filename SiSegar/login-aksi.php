@@ -40,11 +40,11 @@ include 'koneksi/koneksi.php';
         $query3 = mysqli_query($koneksi, "SELECT * FROM user WHERE username_user='$username' ");
         $data3 = mysqli_fetch_array($query3);
         if (($username == $data3['username_user'])) {
-            $password_user = md5($password_user);
+            $password = md5($password);
             if (($password == $data3['password_user'])) {
                 header("location:index.php?pesan=Login Berhasil");
             } else {
-                header("location:login.php?pesan=gagal");
+                header("location:login.php?pesan=gagal login");
             }
     
     
