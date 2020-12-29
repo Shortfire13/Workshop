@@ -10,22 +10,6 @@
     <title>Login Form</title>
 </head>
 <body>
-
-<!-- ***** Preloader Start ***** -->
-<div id="js-preloader" class="js-preloader">
-      <div class="preloader-inner">
-        <span class="dot"></span>
-        <div class="dots">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </div>
-    <!-- ***** Preloader End ***** -->
-
-
-
     <div class="body">
     <div class="container">
         <div class="row px-3">
@@ -53,7 +37,7 @@
                                 <input type="text" name="username" placeholder="Username" required>
                             </div>
                             <div class="form-input">
-                                <span> <i class="fa fa-lock"></i> </span>
+                                <span> <i class="fa fa-key"></i> </span>
                                 <input type="password" name="password" placeholder="Password" required>
                             </div>
 
@@ -85,25 +69,5 @@
         </div>
     </div>
     </div>   
-
-
-                   <!-- jQuery -->
-    <script src="assets/js/jquery-2.1.0.min.js"></script>
-
-<!-- Bootstrap -->
-<script src="assets/js/popper.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-
-<!-- Plugins -->
-<script src="assets/js/scrollreveal.min.js"></script>
-<script src="assets/js/waypoints.min.js"></script>
-<script src="assets/js/jquery.counterup.min.js"></script>
-<script src="assets/js/imgfix.min.js"></script> 
-<script src="assets/js/mixitup.js"></script> 
-<script src="assets/js/accordions.js"></script>
-
-<!-- Global Init -->
-<script src="assets/js/custom.js"></script>
-
 </body>
 </html>

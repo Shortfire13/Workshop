@@ -64,8 +64,10 @@
                                 </div>
                             </li>
                             <li><a href="contact.php">Contact</a></li> 
+                            <li></li>
+                            <li></li>
                             <li><a href="register.php">Daftar</a></li>
-                            <li><a href="login.php">Login</a></li>
+                            <li><a href="login.php">Masuk</a></li>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>

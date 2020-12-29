@@ -38,7 +38,13 @@ if (isset($_POST['username']) && isset($_POST['password'])
         } elseif (empty($nama_user)) {
             header("Location: register.php?error=Name is required&$user_data");
             exit();
-        }  else {
+        } elseif (strlen($password_user)  < 6) {
+            header("Location: register.php?pesan=pass2");
+            exit();
+        } elseif ($password_user !== $repassword) {
+            header("Location: register.php?pesan=pass");
+            exit();
+        } else {
 
         // hashing the password
             $password_user = md5($password_user);
@@ -53,13 +59,7 @@ if (isset($_POST['username']) && isset($_POST['password'])
             } if (mysqli_num_rows($result2) > 0) {
                 header("Location: register.php?pesan=nama");
                 exit();
-            } elseif (strlen($password_user)  < 6) {
-                header("Location: register.php?pesan=pass2");
-                exit();
-            } elseif ($password_user !== $repassword) {
-                header("Location: register.php?pesan=pass");
-                exit();
-            }
+            }             
             else {
                 $sql = "INSERT INTO user VALUES('','$nama_user','$username_user', '$password_user', '' ,  '')";
                 $result2 = mysqli_query($koneksi, $sql);
