@@ -1,5 +1,5 @@
 <?php
-  include = ("koneksi/koneksi.php")
+  include "koneksi/koneksi.php";
   $result = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id_produk DESC");
 ?>
 <!DOCTYPE html>

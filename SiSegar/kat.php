@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,29 +83,18 @@
     <!-- ***** Call to Action End ***** -->
 
     <!-- ***** Fleet Starts ***** -->
-
     <section class="section" id="trainers">
         <div class="container">
+        
             <div class="row">
-                  <div class="container">
-    <div class="search-box">
-  <form action="products.php" class="form-inline">
-    <input class="form-control mr-sm-3" type="search" name="cari" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline my-2 my-sm-0" type="submit">Search</button> 
-
-  </form>
-
-</div>
-</div>
             <?php
             include_once "koneksi/koneksi.php";
-            if (isset($_GET['cari'])) {
-                $cari = $_GET['cari'];
-                $query_mysql = mysqli_query($koneksi, "SELECT * FROM produk WHERE nama_produk LIKE '%$cari%'");
-            }else{
-                $query_mysql = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id_produk");
+            if(isset($_GET['kat'])){
+                $kategori = $_GET['kat'];
+                $mysqli_query = mysqli_query($koneksi,"SELECT a.id_produk,a.id_kategori,a.id_mitra,a.nama_produk,a.harga,a.stok,a.berat,a.foto_produk,a.deskripsi FROM produk a INNER JOIN kategori k ON a.id_kategori=k.id_kategori WHERE k.id_kategori='$kategori' ");
             }
-            while ($data = mysqli_fetch_array($query_mysql)) {
+            while ($data = mysqli_fetch_array($mysqli_query))
+             {
             ?>
             
                 <div class="col-lg-4">
@@ -113,9 +103,10 @@
                             <img src="assets/images/sawi-putih.png" alt="">
                         </div>
                         <div class="down-content">  
+                            <h4><?php echo $data['id_kategori']?></h4>
                             <h4><?php echo $data['nama_produk']?></h4>
                             <h4>Rp.<?php echo $data['harga'] ?></h4>
-                            
+                            <p><?php echo $data['deskripsi'] ?></p>
                             <ul class="social-icons btn">
                                 <li><a href="product-details.php">Beli</a></li>
                             </ul>
@@ -135,7 +126,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p>
+                 
+               <p>
                         Copyright © 2020 Company Name
                         - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a>
                     </p>
