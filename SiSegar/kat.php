@@ -100,13 +100,13 @@
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                             echo "<img src="assets/images/<?php echo $data['foto_produk'] ?>" alt="">
+                              <img src="assets/images/<?php echo $data['foto_produk'] ?>" alt="">
                         </div>
                         <div class="down-content">  
-                            <h4><?php echo $data['id_kategori']?></h4>
+                            
                             <h4><?php echo $data['nama_produk']?></h4>
                             <h4>Rp.<?php echo $data['harga'] ?></h4>
-                            <p><?php echo $data['deskripsi'] ?></p>
+                           
                             <ul class="social-icons btn">
                                 <li><a href="product-details.php">Beli</a></li>
                             </ul>
