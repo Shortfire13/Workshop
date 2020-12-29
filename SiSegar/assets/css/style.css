@@ -1302,7 +1302,7 @@ Login & Register Page
 
 .body{
   height: 100vh;
-  background: #32be8f !important;
+  background: #f67963 !important;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1352,7 +1352,7 @@ Login & Register Page
   position: absolute;
   top: 10px;
   padding-left: 15px;
-  color: #32be8f;
+  color: #f67963;
 }
 
 .form-input input::placeholder{
@@ -1369,7 +1369,7 @@ Login & Register Page
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{
-  background-color: #32be8f !important;
+  background-color: #f67963 !important;
   border: 0px;
 }
 
@@ -1378,7 +1378,7 @@ Login & Register Page
   border: none;
   cursor: pointer;
   border-radius: 50px;
-  background: #32be8f;
+  background: #f67963;
   color: white;
   font-size: 90%;
   font-weight: bold;
@@ -1387,7 +1387,7 @@ Login & Register Page
 }
 
 .form-box button[type="submit"]:hover{
-  background: #2cac81;
+  background: #ed563b;
 }
 
 .forget-link, .register-link{
@@ -1400,3 +1400,11 @@ Login & Register Page
   text-decoration: none;
 }
 
+.small{
+  font-size: 11px;
+}
+
+.silogo{
+  width: 10%;
+  height: 172px;
+}
