@@ -1,7 +1,5 @@
 <?php
 
-  include "koneksi/koneksi.php";
-  $result = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id_produk DESC");
 
   include 'koneksi/koneksi.php';
   $id_produk = $_GET["id_produk"];
