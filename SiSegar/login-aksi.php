@@ -44,7 +44,7 @@ include 'koneksi/koneksi.php';
             if (($password == $data3['password_user'])) {
                 header("location:index.php?pesan=Login Berhasil");
             } else {
-                header("location:login.php?pesan=gagal");
+                header("location:login.php?pesan=gagal login");
             }
     
     
