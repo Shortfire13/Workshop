@@ -86,46 +86,37 @@
         <div class="container">
             <br>
             <br>
+            
+            <div class="row">
             <?php
             include_once "koneksi/koneksi.php";
-            $query_mysql = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id_produk DESC");
-            while ($data = mysqli_fetch_array($query_mysql)) {
+            $produk = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id_produk DESC");
+            while ($data = mysqli_fetch_array($produk)) {
             ?>
-            <div class="row">
+            
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="assets/images/sawi-putih.png" alt="">
+                            <img src="assets/images/sawi-putih.png">
                         </div>
                         <div class="down-content">  
                             <h4><?php echo $data['nama_produk']?></h4>
                             <h4>Rp.<?php echo $data['harga'] ?></h4>
                             <p><?php echo $data['deskripsi'] ?></p>
                             <ul class="social-icons btn">
-                                <li><a href="product-details.php">Beli</a></li>
+                                <li><a href="product-details.php?id_produk=<?php echo $data['id_produk']; ?>">Beli</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <?php } ?>
-            <br>
-
         </div>
+        <br>
     </section>
-    <!-- ***** Fleet Ends ***** -->
-
-    
-    <!-- ***** Footer Start ***** -->
     <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>
-                        Copyright © 2020 Company Name
-                        - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a>
-                    </p>
-                </div>
-            </div>
+        <div class="footer">
+            <p><a href="#">Fanspage</a> || <a href="#">Instagram</a> || <a href="#">Facebook</a>
+            <br>&copy Copyright SiSegar 2020</p>
         </div>
     </footer>
 

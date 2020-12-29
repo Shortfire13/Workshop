@@ -1,7 +1,11 @@
 <?php
-  include = ("koneksi/koneksi.php")
-  $result = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id_produk DESC");
+  include 'koneksi/koneksi.php';
+   $id_produk = $_GET["id_produk"];
+  $produk = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk = '$id_produk' ");
+  $data = mysqli_fetch_array($produk);
+  $p = mysqli_fetch_object($produk);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,8 +88,7 @@
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2><del><sup>$</sup>18.00</del> <em><sup>$</sup>17.00</em></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur.</p>
+                        <h2>Rp. <?php echo $data ['harga'];?> /100gr</h2>
                     </div>
                 </div>
             </div>
@@ -243,6 +246,12 @@
         </div>
       </div>
     </div>
+     <footer>
+        <div class="footer">
+            <p><a href="#">Fanspage</a> || <a href="#">Instagram</a> || <a href="#">Facebook</a>
+            <br>&copy Copyright SiSegar 2020</p>
+        </div>
+    </footer>
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
