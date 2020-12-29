@@ -16,11 +16,11 @@ $connection = new Database($host,$user,$pass,$database);
     <title>Mitra SiSEGAR</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Add custom CSS here -->
-    <link href="assets/css/sb-admin.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/fontawesome-free/css/all.min.css">
+    <link href="../assets/css/sb-admin.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/fontawesome-free/css/all.min.css">
   </head>
 
   <body>
@@ -38,7 +38,7 @@ $connection = new Database($host,$user,$pass,$database);
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="">
-              <img src="assets/img/logo/logofix.png" width="85" height="30">
+              <img src="../assets/img/logo/logofix.png" width="85" height="30">
           </a>
         </div>
 
