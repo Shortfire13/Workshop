@@ -17,11 +17,14 @@ $connection = new Database($host,$user,$pass,$database);
 
     <!-- Bootstrap core CSS -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="../assets/datatables/datatables.min.css"/>
+=======
+>>>>>>> 8791418c5f8e665401f2dae96b9d6e0e21cdf878
 
     <!-- Add custom CSS here -->
-    <link href="assets/css/sb-admin.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/fontawesome-free/css/all.min.css">
+    <link href="../assets/css/sb-admin.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/fontawesome-free/css/all.min.css">
   </head>
 
   <body>
