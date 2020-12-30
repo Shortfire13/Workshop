@@ -39,7 +39,7 @@ if(@$_GET['act'] == ''){
                   <td><?php echo $data->harga; ?></td>
                   <td><?php echo $data->stok; ?></td>
                   <td align="center">
-                    <img src="assets/img/barang/<?php echo $data->gbr_brg;?>" width="70px">
+                    <img src="../assets/img/barang/<?php echo $data->gbr_brg;?>" width="70px">
                   </td>
                   <td><?php echo $data->deskripsi; ?></td>
                   <td><?php echo $data->kategori; ?></td>
@@ -110,7 +110,7 @@ if(@$_GET['act'] == ''){
                     $gbr_brg ="brg-".round(microtime(true)).".".end($extensi);
                     $sumber = $_FILES['gbr_brg']['tmp_name'];
                     
-                    $upload = move_uploaded_file($sumber, "assets/img/barang/".$gbr_brg);
+                    $upload = move_uploaded_file($sumber, "../assets/img/barang/".$gbr_brg);
                     if($upload){
                       $brg->tambah($nm_brg, $hrg_brg, $st_brg, $gbr_brg , $desc_brg, $ktg_brg);
                       header("location: ?page=barang");
@@ -187,14 +187,14 @@ if(@$_GET['act'] == ''){
                   $("#modal-edit #st_brg").val(stcbrg); 
                   $("#modal-edit #desc_brg").val(descbrg);
                   $("#modal-edit #ktg_brg").val(ktgbrg);
-                  $("#modal-edit #pict").attr("src", "assets/img/barang/"+gbrbrg);
+                  $("#modal-edit #pict").attr("src", "../assets/img/barang/"+gbrbrg);
               })
 
               $(document).ready(function(e){
                   $("#form").on("submit", (function(e) {
                       e.preventDefault();
                       $.ajax({
-                          url : 'models/proses_edit_barang.php',
+                          url : '../models/proses_edit_barang.php',
                           type : 'POST',
                           data : new FormData(this),
                           contentType : false,
@@ -213,7 +213,7 @@ if(@$_GET['act'] == ''){
 <?php
 } else if (@$_GET['act'] == 'del') {
   $gbr_awal = $brg->tampil($_GET['id'])->fetch_object()->gbr_brg;
-  unlink("assets/img/barang/".$gbr_awal);
+  unlink("../assets/img/barang/".$gbr_awal);
 
   $brg->hapus($_GET['id']);
   header("location: ?page=barang");

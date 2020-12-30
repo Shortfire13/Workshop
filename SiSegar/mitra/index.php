@@ -16,7 +16,8 @@ $connection = new Database($host,$user,$pass,$database);
     <title>Mitra SiSEGAR</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/datatables/datatables.min.css"/>
 
     <!-- Add custom CSS here -->
     <link href="assets/css/sb-admin.css" rel="stylesheet">
@@ -38,7 +39,7 @@ $connection = new Database($host,$user,$pass,$database);
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="">
-              <img src="assets/img/logo/logofix.png" width="85" height="30">
+              <img src="../assets/img/logo/logofix.png" width="85" height="30">
           </a>
         </div>
 
@@ -82,6 +83,7 @@ $connection = new Database($host,$user,$pass,$database);
     <!-- JavaScript -->
     <script src="assets/js/jquery-1.10.2.js"></script>
     <script src="assets/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../datatables/datatables.min.js"></script>
 
   </body>
 </html>
