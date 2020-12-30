@@ -194,7 +194,7 @@ if(@$_GET['act'] == ''){
                   $("#form").on("submit", (function(e) {
                       e.preventDefault();
                       $.ajax({
-                          url : 'models/proses_edit_barang.php',
+                          url : '../models/proses_edit_barang.php',
                           type : 'POST',
                           data : new FormData(this),
                           contentType : false,
@@ -213,7 +213,7 @@ if(@$_GET['act'] == ''){
 <?php
 } else if (@$_GET['act'] == 'del') {
   $gbr_awal = $brg->tampil($_GET['id'])->fetch_object()->gbr_brg;
-  unlink("assets/img/barang/".$gbr_awal);
+  unlink("../assets/img/barang/".$gbr_awal);
 
   $brg->hapus($_GET['id']);
   header("location: ?page=barang");
