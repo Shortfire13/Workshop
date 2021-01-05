@@ -1,12 +1,13 @@
 <?php
+<<<<<<< HEAD
+=======
 
-
+>>>>>>> 719cfa5d8b166548bad0042b8968cfbde4366605
   include 'koneksi/koneksi.php';
   $id_produk = $_GET["id_produk"];
   $produk = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk = '$id_produk' ");
   $data = mysqli_fetch_array($produk);
   $p = mysqli_fetch_object($produk);
-
 ?>
 
 <!DOCTYPE html>
@@ -91,7 +92,11 @@
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Rp. <?php echo $data ['harga'];?> /100gr</h2>
+<<<<<<< HEAD
+                        <h2>Rp. <?php echo $data ['harga']; ?></h2>
+=======
+                        <h2>Rp. <?php echo $data['harga'];?> /100gr</h2>
+>>>>>>> 719cfa5d8b166548bad0042b8968cfbde4366605
                     </div>
                 </div>
             </div>
