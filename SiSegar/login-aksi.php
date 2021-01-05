@@ -12,14 +12,15 @@ include 'koneksi/koneksi.php';
     if (($username == $data['username'])) {
         //$password_user = md5($password_user);
         if (($password == $data['password'])) {
+            $_SESSION['submit'] = true;
+            $_SESSION['username'] = $username;
             header("location:index.php?pesan=Login Admin Berhasil");
         } else {
             header("location:login.php?pesan=gagal");
         }
     
     
-        $_SESSION['status'] = "login";
-        $_SESSION['username'] = $username;
+
     } else{
         //mitra
         $query2 = mysqli_query($koneksi, "SELECT * FROM mitra WHERE username_mitra='$username' ");
@@ -27,14 +28,15 @@ include 'koneksi/koneksi.php';
         if (($username == $data2['username_mitra'])) {
             //$password_user = md5($password_user);
             if (($password == $data2['password_mitra'])) {
+                $_SESSION['submit'] = true;
+                $_SESSION['username_mitra'] = $username;
                 header("location:index.php?pesan=Login mitra Berhasil");
             } else {
                 header("location:login.php?pesan=gagal");
             }
     
     
-            $_SESSION['status'] = "login";
-            $_SESSION['username_mitra'] = $username;
+
     } else {
         //user
         $query3 = mysqli_query($koneksi, "SELECT * FROM user WHERE username_user='$username' ");
@@ -42,14 +44,15 @@ include 'koneksi/koneksi.php';
         if (($username == $data3['username_user'])) {
             $password = md5($password);
             if (($password == $data3['password_user'])) {
+                $_SESSION['submit'] = true;
+                $_SESSION['username_user'] = $username;
                 header("location:index.php?pesan=Login Berhasil");
             } else {
                 header("location:login.php?pesan=gagal login");
             }
     
     
-            $_SESSION['status'] = "login";
-            $_SESSION['username_user'] = $username;
+
             } else {
                 header("location:login.php?pesan=gagal");
             }
