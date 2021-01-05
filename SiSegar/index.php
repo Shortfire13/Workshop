@@ -52,20 +52,8 @@
                         <ul class="nav">
                             <li><a href="index.php" class="active">Home</a></li>
                             <li><a href="products.php">Products</a></li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
-                              
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="about.php">About Us</a>
-                                    <a class="dropdown-item" href="blog.php">Blog</a>
-                                    <a class="dropdown-item" href="testimonials.php">Testimonials</a>
-                                    <a class="dropdown-item" href="terms.php">Terms</a>
-                                </div>
-                            </li>
+                            <li><a href="about.php">About</a></li> 
                             <li><a href="contact.php">Contact</a></li> 
-                            <li></li>
-                            <li></li>
-                            <li></li>
                             <li><a href="register.php">Daftar</a></li>
                             <li><a href="login.php">Masuk</a></li>
                         </ul>        
@@ -95,6 +83,7 @@
             </div>
         </div>
     </div>
+
     <!-- ***** Main Banner Area End ***** -->
 
    <!-- ***** Cars Starts ***** -->
@@ -105,16 +94,16 @@
                     <div class="section-heading">
                         <h2>Our <em>Foods</em></h2>
                         <img src="assets/images/line-dec.png" alt="">
+                         </div>
+          <div class="container">
+            <div class="search">
+          <form action="products.php" class="form-inline">
+            <input class="form-control mr-sm-3" type="search" name="cari" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline my-2 my-sm-0" type="submit">Search</button> 
+          </form>
         </div>
-  <div class="container">
-    <div class="search">
-  <form action="products.php" class="form-inline">
-    <input class="form-control mr-sm-3" type="search" name="cari" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline my-2 my-sm-0" type="submit">Search</button> 
-  </form>
-</div>
-</div>
-             
+        </div>
+                     
         <div class="row">
             <?php
             include_once "koneksi/koneksi.php";
@@ -125,7 +114,6 @@
                     <div class="trainer-item">
                         <div class="image-thumb">
                            <img src="assets/images/<?php echo $data['sampul'] ?>" alt="">
-                        
                         </div>
                         <a href="kat.php?kat=<?php echo $data['id_kategori']?>">
                         <div class="down-content">
@@ -137,12 +125,8 @@
                 <?php } ?>
             </div>
             </div>
-
-            <br>
-
-            
         </div>
-        <div class="main-button text-center">
+            <div class="main-button text-center">
                 <a href="products.php">View our products</a>
             </div>
     </section>
