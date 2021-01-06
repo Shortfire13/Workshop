@@ -16,16 +16,12 @@ $connection = new Database($host,$user,$pass,$database);
     <title>Mitra SiSEGAR</title>
 
     <!-- Bootstrap core CSS -->
-<<<<<<< HEAD
    
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
-=======
+
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
-<<<<<<< HEAD
+
     <link rel="stylesheet" type="text/css" href="../assets/datatables/datatables.min.css"/>
-=======
->>>>>>> 8791418c5f8e665401f2dae96b9d6e0e21cdf878
->>>>>>> 126ab8f1bb24e107fab84eafd6e04258a718e5fd
 
     <!-- Add custom CSS here -->
     <link href="../assets/css/sb-admin.css" rel="stylesheet">

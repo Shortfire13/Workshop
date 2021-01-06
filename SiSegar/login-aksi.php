@@ -27,7 +27,7 @@ include 'koneksi/koneksi.php';
         if (($username == $data2['username_mitra'])) {
             //$password_user = md5($password_user);
             if (($password == $data2['password_mitra'])) {
-                header("location:index.php?pesan=Login mitra Berhasil");
+                header("location:mitra/index.php?pesan=Login mitra Berhasil");
             } else {
                 header("location:login.php?pesan=gagal");
             }
