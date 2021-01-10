@@ -6,54 +6,34 @@ include 'koneksi/koneksi.php';
     $password = $_POST['password'];
 
 
-    //admin
-    $query = mysqli_query($koneksi, "SELECT * FROM admin WHERE username='$username' ");
+    //Login Mitra
+    $query = mysqli_query($koneksi, "SELECT * FROM mitra WHERE username_mitra='$username' ");
     $data = mysqli_fetch_array($query);
-    if (($username == $data['username'])) {
-        //$password_user = md5($password_user);
-        if (($password == $data['password'])) {
-            header("location:index.php?pesan=Login Admin Berhasil");
+    if (($username == $data['username_mitra'])) {
+        if (($password == $data['password_mitra'])) {
+            header("location:index.php?pesan=Login Mitra Berhasil");
         } else {
             header("location:login.php?pesan=gagal");
         }
     
     
-        $_SESSION['status'] = "login";
-        $_SESSION['username'] = $username;
-    } else{
-        //mitra
-        $query2 = mysqli_query($koneksi, "SELECT * FROM mitra WHERE username_mitra='$username' ");
+    }else{
+        //Login User
+        $query2 = mysqli_query($koneksi, "SELECT * FROM user WHERE username_user='$username' ");
         $data2 = mysqli_fetch_array($query2);
-        if (($username == $data2['username_mitra'])) {
-            //$password_user = md5($password_user);
-            if (($password == $data2['password_mitra'])) {
-                header("location:mitra/index.php?pesan=Login mitra Berhasil");
+        if (($username == $data2['username_user'])) {
+            //Buka Enkripsi
+            $password = md5($password);
+
+            if (($password == $data2['password_user'])) {
+                header("location:mitra/index.php?pesan=Login User Berhasil");
             } else {
                 header("location:login.php?pesan=gagal");
             }
     
-    
-            $_SESSION['status'] = "login";
-            $_SESSION['username_mitra'] = $username;
-    } else {
-        //user
-        $query3 = mysqli_query($koneksi, "SELECT * FROM user WHERE username_user='$username' ");
-        $data3 = mysqli_fetch_array($query3);
-        if (($username == $data3['username_user'])) {
-            $password = md5($password);
-            if (($password == $data3['password_user'])) {
-                header("location:index.php?pesan=Login Berhasil");
-            } else {
-                header("location:login.php?pesan=gagal login");
-            }
-    
-    
-            $_SESSION['status'] = "login";
-            $_SESSION['username_user'] = $username;
             } else {
                 header("location:login.php?pesan=gagal");
             }
         }
-}
 
 ?>
