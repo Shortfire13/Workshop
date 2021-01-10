@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'koneksi/koneksi.php';
+require 'koneksi/koneksi.php';
 
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -11,6 +11,17 @@ include 'koneksi/koneksi.php';
     $data = mysqli_fetch_array($query);
     if (($username == $data['username_mitra'])) {
         if (($password == $data['password_mitra'])) {
+
+            //Session
+            $_SESSION['login'] = true;
+
+            //Remember Me
+            if( isset($_POST['remember']) ){
+                //Buat Cookie
+                setcookie('id', $data['id_mitra'],time() + 3600);
+                setcookie('key', hash('sha256', $data['username_mitra'], time() + 3600);
+            }
+
             header("location:index.php?pesan=Login Mitra Berhasil");
         } else {
             header("location:login.php?pesan=gagal");
@@ -26,6 +37,17 @@ include 'koneksi/koneksi.php';
             $password = md5($password);
 
             if (($password == $data2['password_user'])) {
+
+                //Session
+                $_SESSION['login'] = true;
+
+            //Remember Me
+            if( isset($_POST['remember']) ){
+                //Buat Cookie
+                setcookie('id', $data['id_user'],time() + 3600);
+                setcookie('key', hash('sha256', $data['username_user'], time() + 3600);
+            }
+
                 header("location:mitra/index.php?pesan=Login User Berhasil");
             } else {
                 header("location:login.php?pesan=gagal");
