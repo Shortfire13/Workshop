@@ -19,7 +19,7 @@ require 'koneksi/koneksi.php';
             if( isset($_POST['remember']) ){
                 //Buat Cookie
                 setcookie('id', $data['id_mitra'],time() + 3600);
-                setcookie('key', hash('sha256', $data['username_mitra'], time() + 3600);
+                setcookie('key', hash('sha256', $data['username_mitra'], time() + 3600));
             }
 
             header("location:index.php?pesan=Login Mitra Berhasil");
@@ -45,7 +45,7 @@ require 'koneksi/koneksi.php';
             if( isset($_POST['remember']) ){
                 //Buat Cookie
                 setcookie('id', $data['id_user'],time() + 3600);
-                setcookie('key', hash('sha256', $data['username_user'], time() + 3600);
+                setcookie('key', hash('sha256', $data['username_user'], time() + 3600));
             }
 
                 header("location:mitra/index.php?pesan=Login User Berhasil");

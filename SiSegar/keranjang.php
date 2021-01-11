@@ -1,12 +1,3 @@
-<?php
-  session_start();
-  
-  $koneksi = new mysqli('localhost','root','','db_sisegar');
-
-  echo "<pre>";
-  print_r($_SESSION['keranjang']);
-  echo "</pre>";
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
-    <title>Si Segar</title>
+     <title>Si Segegar </title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
@@ -56,8 +47,8 @@
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li><a href="index.php">Home</a></li>
-                            <li><a href="products.php">Products</a></li>
-                            <li><a href="checkout.php" class="active">Checkout</a></li>
+                            <li><a href="products.php" class="active">Products</a></li>
+                            <li><a href="checkout.php">Checkout</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
                               
@@ -68,7 +59,7 @@
                                     <a class="dropdown-item" href="terms.php">Terms</a>
                                 </div>
                             </li>
-                            <li><a href="contact.php">Yuk Jualan</a></li> 
+                            <li><a href="contact.php">Contact</a></li> 
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -81,6 +72,7 @@
     </header>
     <!-- ***** Header Area End ***** -->
 
+    <!-- ***** Call to Action Start ***** -->
     <section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
         <div class="container">
             <div class="row">
@@ -88,127 +80,120 @@
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Keranjang <em>Belanja</em></h2>
-                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+                        <h2>KERANJANG <em>BELANJA</em></h2>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- ***** Call to Action End ***** -->
 
-    <section class="section">
+    <!-- ***** Fleet Starts ***** -->
+    <section class="section" id="trainers">
         <div class="container">
             <br>
             <br>
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="contact-form">
-                        <form id="contact" action="" method="post">
-                           <div class="row">
-                             <table class="table table-border text-center">
-                               <thead>
-                                 <tr>
-                                   <th class="text-center">No</th>
-                                   <th class="text-center">Id Produk</th>
-                                   <th class="text-center">Nama Produk</th>
-                                   <th class="text-center">Jumlah Beli</th>
-                                   <th class="text-center">SubTotal</th>
-                                 </tr>
-                               </thead>
-                               <tbody>
-                                 <?php foreach ($_SESSION['keranjang']  as $id_produk => $jumlah); ?>
-                                 <?php 
-                                 $ambil = $koneksi->query("SELECT * FROM barang Where id_barang = $id_produk");
-                                 $pecah = $ambil->fetch_assoch();
-                                 echo "<pre>";
-                                 print_r($pecah);
-                                 echo "</pre>";
-                                 ?>
-                                 <tr>
-                                   <td></td>
-                                 </tr>
-                               </tbody>
-                             </table>
-                                <!-- <div class="col-sm-6 col-xs-12">
-                                     <label>Title:</label>
-                                     <select data-msg-required="This field is required.">
-                                          <option value="">-- Choose --</option>
-                                          <option value="dr">Dr.</option>
-                                          <option value="miss">Miss</option>
-                                          <option value="mr">Mr.</option>
-                                          <option value="mrs">Mrs.</option>
-                                          <option value="ms">Ms.</option>
-                                          <option value="other">Other</option>
-                                          <option value="prof">Prof.</option>
-                                          <option value="rev">Rev.</option>
-                                     </select>
-                                </div> 
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Nama:</label>
-                                     <input type="text" require>
-                                </div>
-                           </div>
-                           <div class="row">
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Email:</label>
-                                     <input type="text" require>
-                                </div>
-                           </div>
-                           <div class="row">
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>No. Tlpn/WA:</label>
-                                     <input type="text" require>
-                                </div>
-                            </div>
-                           <div class="row">
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Alamat:</label>
-                                     <input type="text" require>
-                                </div>
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Kota:</label>
-                                     <input type="text" require>
-                                </div>
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Kecamatan:</label>
-                                     <input type="text" require>
-                                </div>
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Desa:</label>
-                                     <input type="text" require>
-                                </div>
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Metode Pembayaran</label>
-                                     
-                                     <select>
-                                          <option value="">-- Pilih --</option>
-                                          <option value="bank">Transfer Bank</option>
-                                          <option value="cash">Tunai</option>
-                                     </select>
-                                </div>
-                           </div>-->
-                            
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="main-button">
-                                        <div class="float-left">
-                                            <a href="index.php">Lanjut Belanja</a>
-                                        </div>
-
-                                        <div class="float-right ml-4">
-                                            <a href="checkout.php">Checkout</a>
-                                        </div>
+                <!-- ***** Mulai Keranjang ***** -->
+            
+                <div class="small-container cart-page">
+                    <table class="tabel-keranjang">
+                        <tr>
+                            <th>Produk</th>            
+                            <th>Kuantitas</th>
+                            <th>Subtotal</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="cart-info">
+                                    <img src="assets/images/selada.jpg" alt="">
+                                    <div>
+                                        <p>Selada</p>
+                                        <small>Harga: $50.00</small>
+                                        <br>
+                                        <a href="">Remove</a> 
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </td>
+                            <td><input type="number" value="1"></td>
+                            <td>50.00</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="cart-info">
+                                    <img src="assets/images/selada.jpg" alt="">
+                                    <div>
+                                        <p>Selada</p>
+                                        <small>Harga: $50.00</small>
+                                        <br>
+                                        <a href="">Remove</a> 
+                                    </div>
+                                </div>
+                            </td>
+                            <td><input type="number" value="1"></td>
+                            <td>50.00</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="cart-info">
+                                    <img src="assets/images/selada.jpg" alt="">
+                                    <div>
+                                        <p>Selada</p>
+                                        <small>Harga: $50.00</small>
+                                        <br>
+                                        <a href="">Remove</a> 
+                                    </div>
+                                </div>
+                            </td>
+                            <td><input type="number" value="1"></td>
+                            <td>50.00</td>
+                        </tr>
+                    </table>
+
+                    <!---- Total Harga dan Button Checkout ---->
+
+                    <div class="total-harga">
+                        <table>
+                            <tr>
+                                <td>Total</td>
+                                <td>$100.00</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <button type="submit" class="btn btn-checkout text-uppercase" name="checkout">Checkout</button></td>
+                            </tr>
+                        </table>
                     </div>
 
-                    <br>
                 </div>
+            </div>
+
+            <br>
+                
+            <nav>
+              <ul class="pagination pagination-lg justify-content-center">
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+
         </div>
     </section>
+    <!-- ***** Fleet Ends ***** -->
 
+    
     <!-- ***** Footer Start ***** -->
     <footer>
         <div class="container">

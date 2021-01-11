@@ -1411,3 +1411,83 @@ Login & Register Page
 .silogo{
   width: 10%;
   height: 172px;
+}
+
+/*------ Keranjang ------*/
+.cart-page{
+  margin: 80px auto;
+
+}
+
+.tabel-keranjang{
+  width: 100%;
+  border-collapse: collapse;
+
+}
+
+.cart-info{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tabel-keranjang th{
+  text-align: left;
+  padding: 5px;
+  color: #fff;
+  background: #ed563b;
+  font-weight: normal;
+}
+
+.tabel-keranjang td{
+  padding: 10px 5px;
+}
+
+.tabel-keranjang td:last-child{
+  text-align: right;
+}
+
+.tabel-keranjang th:last-child{
+  text-align: right;
+}
+
+.tabel-keranjang td input{
+  width: 50px;
+  height: 30px;
+  padding: 5px;
+  align-content: center;
+}
+
+.tabel-keranjang td a{
+  color: red;
+  font-size: 12px;
+}
+
+.tabel-keranjang td img{
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+}
+
+.total-harga{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.total-harga table{
+  border-top: 3px solid #ed563b;
+  width: 100%;
+  max-width: 350px;
+}
+
+.total-harga td:last-child{
+  text-align: right;
+}
+
+.total-harga th:last-child{
+  text-align: right;
+}
+
+.total-harga .btn-checkout{
+  border-radius: 4px;
+  width: 280px;
+}
