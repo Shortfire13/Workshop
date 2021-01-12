@@ -137,29 +137,23 @@
 
               <div class="col-md-4">
                 <div class="contact-form">
-                  <form action="#" id="contact">
+                  <form action="beli.php"?id_produk=<?php echo $id_produk; ?> id="contact" method="GET">
                     <div class="form-group">
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi ratione molestias maxime odio!</p>
                     </div>
-                    
-                    <label>Extra 1</label>
-
-                    <select>
-                        <option value="0">Extra A</option>
-                        <option value="1">Extra B</option>
-                        <option value="2">Extra C</option>
-                    </select>
 
                     <div class="row">
                       <div class="col-md-6">
                         <label>Quantity</label>
 
-                        <input type="text" placeholder="1">
+                        <input type="text" placeholder="1" name="quantity" required>
                       </div>
                     </div>
                     
                     <div class="main-button">
-                        <a href="checkout.php">Add to cart</a>
+                        <button class='btn btn-primary' type='submit'>
+                          add to cart
+                        </button>
                     </div>
                   </form>
                 </div>

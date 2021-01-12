@@ -34,7 +34,7 @@ require 'koneksi/koneksi.php';
         $data2 = mysqli_fetch_array($query2);
         if (($username == $data2['username_user'])) {
             //Buka Enkripsi
-            $password = md5($password);
+            //$password = md5($password);
 
             if (($password == $data2['password_user'])) {
 
@@ -48,7 +48,7 @@ require 'koneksi/koneksi.php';
                 setcookie('key', hash('sha256', $data['username_user'], time() + 3600));
             }
 
-                header("location:mitra/index.php?pesan=Login User Berhasil");
+                header("location:index.php?pesan=Login User Berhasil");
             } else {
                 header("location:login.php?pesan=gagal");
             }
