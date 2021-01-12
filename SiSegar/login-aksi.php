@@ -14,8 +14,8 @@ require 'koneksi/koneksi.php';
 
             //Session
             $_SESSION['login'] = true;
-            $_SESSION['username'] = $data3['username_mitra'];
-            $_SESSION['id'] = $data3['id_mitra'];
+            $_SESSION['username'] = $data['username_mitra'];
+            $_SESSION['id'] = $data['id_mitra'];
 
             //Remember Me
             if( isset($_POST['remember']) ){
@@ -35,15 +35,14 @@ require 'koneksi/koneksi.php';
         $query2 = mysqli_query($koneksi, "SELECT * FROM user WHERE username_user='$username' ");
         $data2 = mysqli_fetch_array($query2);
         if (($username == $data2['username_user'])) {
-            //Buka Enkripsi
-            $password = md5($password);
+
 
             if (($password == $data2['password_user'])) {
 
                 //Session
                 $_SESSION['login'] = true;
-                $_SESSION['username_user'] = $data3['username_user'];
-                $_SESSION['id_user'] = $data3['id_user'];
+                $_SESSION['username_user'] = $data2['username_user'];
+                $_SESSION['id_user'] = $data2['id_user'];
 
             //Remember Me
             if( isset($_POST['remember']) ){

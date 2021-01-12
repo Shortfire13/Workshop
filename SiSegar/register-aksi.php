@@ -1,7 +1,7 @@
 <?php
 
 session_start();  
-include 'koneksi/koneksi.php';
+require 'koneksi/koneksi.php';
 
 $nama_user = $_POST['nama'];
 $username_user = $_POST['username'];
@@ -46,8 +46,7 @@ if (isset($_POST['username']) && isset($_POST['password'])
             exit();
         } else {
 
-        // hashing the password
-            $password_user = md5($password_user);
+
 
             $sqluname = "SELECT * FROM user WHERE username_user='$username_user' ";
             $result = mysqli_query($koneksi, $sqluname);
@@ -78,4 +77,4 @@ else{
     exit();
 }
 
-?>-+
+?>
