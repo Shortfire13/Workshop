@@ -137,7 +137,7 @@
 
               <div class="col-md-4">
                 <div class="contact-form">
-                  <form action="beli.php"?id_produk=<?php echo $id_produk; ?> id="contact" method="GET">
+                  <form action="beli.php">
                     <div class="form-group">
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi ratione molestias maxime odio!</p>
                     </div>

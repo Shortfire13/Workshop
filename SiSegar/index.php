@@ -1,5 +1,5 @@
 <?php
-require 'koneksi.php';
+require 'koneksi/koneksi.php';
 session_start();
 
     //set cookie
@@ -75,10 +75,9 @@ session_start();
                             <li><a href="index.php" class="active">Home</a></li>
                             <li><a href="products.php">Products</a></li>
                             <li><a href="about.php">About</a></li> 
-                            <li><a href="contact.php">Contact</a></li> 
-                            <li><a href="register.php">Daftar</a></li>
+                            <li><a href="contact.php">Contact</a></li>
                             <?php
-                                if (isset($_SESSION["login"]) && $_SESSION["username_user"] && $_SESSION["id_user"]) {
+                                if (isset($_SESSION["login"]) && isset($_SESSION["username_user"]) && isset($_SESSION["id_user"])) {
                                     $username = $_SESSION['username_user'];
 
                                     echo "<li class='dropdown'>";

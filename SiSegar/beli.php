@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'koneksi/koneksi.php';
 $id_user = $_SESSION['id_user'];
 $id_produk = $_GET['id_produk'];
