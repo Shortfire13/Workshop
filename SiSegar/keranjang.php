@@ -84,6 +84,7 @@ if (!isset($_SESSION["login"])) {
                                     echo "<div class='dropdown-menu'>";
                                     echo "<a class='dropdown-item' href='profile.php'>Profile Saya</a>";
                                     echo "<a class='dropdown-item' href='keranjang.php'>Keranjang</a>";
+                                    echo "<a class='dropdown-item' href='riwayat.php'>Riwayat Transaksi</a>";
                                     echo "<a class='dropdown-item' href='logout.php'>Logout</a>";
                                     echo "</div>";
                                     echo "</li>";

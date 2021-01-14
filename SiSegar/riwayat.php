@@ -1,3 +1,28 @@
+<?php
+require 'koneksi/koneksi.php';
+session_start();
+
+    //set cookie
+    if (isset($_COOKIE['id']) && isset($_COOKIE['key']) ) {
+        $id = $_COOKIE['id'];
+        $key = $_COOKIE['key'];
+
+        //ambil username berdasarkan id
+        $result = mysqli_query($koneksi, "SELECT username FROM admin WHERE id_admin = $id");
+        $data = mysqli_fetch_assoc($result);
+        
+        //cek cookie dan username
+        if ($key === hash('sha256', $data['username'])) {
+            $_SESSION['login'] = true;
+        }
+    }
+
+    if (!isset($_SESSION["login"])) {
+        header('Location:login.php');
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,15 +74,26 @@
                             <li><a href="index.php">Home</a></li>
                             <li><a href="products.php">Products</a></li>
                             <li><a href="checkout.php">Checkout</a></li>
-                            <li><a href="riwayat.php">Riwayat Transaksi</a></li> 
-                           <li class='dropdown'>
-                            <a class='dropdown-toggle' data-toggle='dropdown' href='#'>Menu</a>
-                            <div class='dropdown-menu'>
-                            <a class='dropdown-item' href='blog.php'>Keranjang</a>
-                            <a class='dropdown-item' href='profile.php'>MY Profile</a>
-                             <a class='dropdown-item' href='testimonials.php'>Testimonials</a>
-                                    <a class='dropdown-item' href='logout.php'>Logout</a>
-                        </ul>        
+                            <?php
+                                if (isset($_SESSION["login"]) && isset($_SESSION["username_user"]) && isset($_SESSION["id_user"])) {
+                                    $username = $_SESSION['username_user'];
+
+                                    echo "<li class='dropdown'>";
+                                    echo "<a class='dropdown-toggle' data-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>Halo, $username </a>";
+                                    echo "<div class='dropdown-menu'>";
+                                    echo "<a class='dropdown-item' href='profile.php'>Profile Saya</a>";
+                                    echo "<a class='dropdown-item' href='keranjang.php'>Keranjang</a>";
+                                    echo "<a class='dropdown-item' href='riwayat.php'>Riwayat Transaksi</a>";
+                                    echo "<a class='dropdown-item' href='logout.php'>Logout</a>";
+                                    echo "</div>";
+                                    echo "</li>";
+                                } else {
+                                    echo "<li></li>";
+                                    echo "<li><a href='register.php'>Daftar</a></li>";
+                                    echo "<li><a href='login.php'>Masuk</a></li>";
+                                }
+                            ?> 
+                        </ul>   
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>

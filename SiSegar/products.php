@@ -45,7 +45,16 @@ session_start();
     <body>
     
     <!-- ***** Preloader Start ***** -->
-
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
     <!-- ***** Preloader End ***** -->
     
     
@@ -71,6 +80,7 @@ session_start();
                                     echo "<div class='dropdown-menu'>";
                                     echo "<a class='dropdown-item' href='profile.php'>Profile Saya</a>";
                                     echo "<a class='dropdown-item' href='keranjang.php'>Keranjang</a>";
+                                    echo "<a class='dropdown-item' href='riwayat.php'>Riwayat Transaksi</a>";
                                     echo "<a class='dropdown-item' href='logout.php'>Logout</a>";
                                     echo "</div>";
                                     echo "</li>";
