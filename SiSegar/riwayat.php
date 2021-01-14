@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
-     <title>Si Segar </title>
+    <title>Si Segegar </title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
@@ -22,7 +22,16 @@
     <body>
     
     <!-- ***** Preloader Start ***** -->
-
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
     <!-- ***** Preloader End ***** -->
     
     
@@ -33,13 +42,15 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.php" class="logo">Si Segar<em> Website</em></a>
+                        <a href="index.php" class="logo">SI SEGAR <em> Website</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="index.php" class="active">Home</a></li>
+                            <li><a href="index.php">Home</a></li>
                             <li><a href="products.php">Products</a></li>
-                            <li class='dropdown'>
+                            <li><a href="checkout.php">Checkout</a></li>
+                            <li><a href="riwayat.php">Riwayat Transaksi</a></li> 
+                           <li class='dropdown'>
                             <a class='dropdown-toggle' data-toggle='dropdown' href='#'>Menu</a>
                             <div class='dropdown-menu'>
                             <a class='dropdown-item' href='blog.php'>Keranjang</a>
@@ -58,7 +69,6 @@
     </header>
     <!-- ***** Header Area End ***** -->
 
-    <!-- ***** Call to Action Start ***** -->
     <section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
         <div class="container">
             <div class="row">
@@ -66,67 +76,71 @@
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Kesegaran Bagimu Adalah</h2>
-                        <h2><em>Kepuasan Kami</em></h2>
-                        <p>Dapatkan Bahan-Bahan Masakmu Disini !!</p>
+                        <h2>Read our <em>Blog</em></h2>
+                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ***** Call to Action End ***** -->
-
-    <!-- ***** Fleet Starts ***** -->
-
-    <section class="section" id="trainers">
-        <div class="container">
-
+    <br><br>
+    <!-- ***** Blog Start ***** -->
+    <section class="section" id="our-classes">
+       <div class="container">
             <div class="row">
-                  <div class="container">
-    <div class="search-box">
-  <form action="products.php" class="form-inline">
-    <input class="form-control mr-sm-3" type="search" name="cari" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline my-2 my-sm-0" type="submit">Search</button> 
-
-  </form>
-
-</div>
-</div>
-            <?php
-            session_start();
-            include_once "koneksi/koneksi.php";
-            if (isset($_GET['cari'])) {
-                $cari = $_GET['cari'];
-                $query_mysql = mysqli_query($koneksi, "SELECT * FROM produk WHERE nama_produk LIKE '%$cari%'");
-            }else{
-                $query_mysql = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id_produk");
-            }
-            while ($data = mysqli_fetch_array($query_mysql)) {
-            ?>
-            
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/<?php echo $data['foto_produk'] ?>">
-                        </div>
-                        <div class="down-content">  
-                            <h4><?php echo $data['nama_produk']?></h4>
-                            <h4>Rp.<?php echo $data['harga'] ?></h4>
-                            
-                           <ul>
-                                <a href="product-details.php?id_produk=<?php echo $data['id_produk']; ?>" class="btn btn-warning btn-md">Beli Sekarang</a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <?php } ?>
+                 <div class="col-lg-12">
+                 <br/>
+                 <a href="tambah.php" class="btn btn-success btn-md"><span class="fa fa-plus"></span> Tambah</a>
+                 <table class="table table-hover table-bordered" style="margin-top: 10px">
+                    <tr class="success">
+                        
+                        <th>id transaksi</th>
+                        <th>id produk</th>
+                        <th>tgl Beli</th>
+                        <th>status</th>
+                         <th>alamat</th>
+                         <th>sub total</th>
+                          <th>total</th> 
+                           <th>opsi bayar</th>                       
+                  
+                    </tr>
+                     <?php
+                      include_once "koneksi/koneksi.php";
+                    session_start();
+                        $id = $_SESSION['id_user'];
+                    $query_mysql = mysqli_query($koneksi, "SELECT * FROM transaksi WHERE id_user = '$id' ");
+                    while ($data = mysqli_fetch_array($query_mysql)) {
+                     ?>
+                    <tr>
+                        
+                        <td><?php echo $data['id_transaksi']?></td>
+                        <td><?php echo $data['id_produk'];?></td>
+                        <td><?php echo $data['tgl_beli'];?></td>
+                        <td><?php echo $data['status'];?></td>
+                        <td><?php echo $data['alamat'];?></td>
+                        <td><?php echo $data['sub_total'];?></td>
+                        <td><?php echo $data['total'];?></td>
+                        <td><?php echo $data['opsi_bayar'];?></td>
+                       
+                    </tr>
+                 
+                    
+                 </table>
+              </div>
+            </div>
+            <?php } ?>
         </div>
-        <br>
     </section>
+    <!-- ***** Blog End ***** -->
+
+    <!-- ***** Footer Start ***** -->
     <footer>
-        <div class="footer">
-            <p><a href="#">Fanspage</a> || <a href="#">Instagram</a> || <a href="#">Facebook</a>
-            <br>&copy Copyright SiSegar 2020</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                </div>
+            </div>
         </div>
     </footer>
 

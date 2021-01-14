@@ -50,7 +50,13 @@
                             <li><a href="products.php">Products</a></li>
                             <li><a href="checkout.php">Checkout</a></li>
                             <li><a href="riwayat.php">Riwayat Transaksi</a></li> 
-                            <li><a href="contact.php">Contact</a></li> 
+                            <li class='dropdown'>
+                            <a class='dropdown-toggle' data-toggle='dropdown' href='#'>Menu</a>
+                            <div class='dropdown-menu'>
+                            <a class='dropdown-item' href='blog.php'>Keranjang</a>
+                            <a class='dropdown-item' href='profile.php'>MY Profile</a>
+                             <a class='dropdown-item' href='testimonials.php'>Testimonials</a>
+                                    <a class='dropdown-item' href='logout.php'>Logout</a>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
