@@ -1,6 +1,25 @@
 <?php
 
-  include 'koneksi/koneksi.php';
+  require 'koneksi/koneksi.php';
+  session_start();
+  
+      //set cookie
+      if (isset($_COOKIE['id']) && isset($_COOKIE['key']) ) {
+          $id = $_COOKIE['id'];
+          $key = $_COOKIE['key'];
+  
+          //ambil username berdasarkan id
+          $result = mysqli_query($koneksi, "SELECT username FROM admin WHERE id_admin = $id");
+          $data = mysqli_fetch_assoc($result);
+          
+          //cek cookie dan username
+          if ($key === hash('sha256', $data['username'])) {
+              $_SESSION['login'] = true;
+          }
+      }
+  
+  
+  
   $id_produk = $_GET["id_produk"];
   $produk = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk = '$id_produk' ");
   $data = mysqli_fetch_array($produk);
@@ -55,20 +74,28 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="products.php" class="active">Products</a></li>
-                            <li><a href="checkout.php">Checkout</a></li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
-                              
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="about.php">About Us</a>
-                                    <a class="dropdown-item" href="blog.php">Blog</a>
-                                    <a class="dropdown-item" href="testimonials.php">Testimonials</a>
-                                    <a class="dropdown-item" href="terms.php">Terms</a>
-                                </div>
-                            </li>
-                            <li><a href="contact.php">Contact</a></li> 
+                            <li><a href="index.php" class="active">Home</a></li>
+                            <li><a href="products.php">Products</a></li>
+                            <li><a href="about.php">About</a></li> 
+
+                            <?php
+                                if (isset($_SESSION["login"]) && isset($_SESSION["username_user"]) && isset($_SESSION["id_user"])) {
+                                    $username = $_SESSION['username_user'];
+
+                                    echo "<li class='dropdown'>";
+                                    echo "<a class='dropdown-toggle' data-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>Halo, $username </a>";
+                                    echo "<div class='dropdown-menu'>";
+                                    echo "<a class='dropdown-item' href='profile.php'>Profile Saya</a>";
+                                    echo "<a class='dropdown-item' href='keranjang.php'>Keranjang</a>";
+                                    echo "<a class='dropdown-item' href='logout.php'>Logout</a>";
+                                    echo "</div>";
+                                    echo "</li>";
+                                } else {
+                                    echo "<li></li>";
+                                    echo "<li><a href='register.php'>Daftar</a></li>";
+                                    echo "<li><a href='login.php'>Masuk</a></li>";
+                                }
+                            ?> 
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -104,32 +131,16 @@
             <br>
 
             <div class="row">
-              <div class="col-md-8">
+            <div class="col-md-8">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                   <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+
                   </ol>
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img class="d-block w-100" src="assets/images/product-image-1-1200x600.jpg" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                      <img class="d-block w-100" src="assets/images/product-image-1-1200x600.jpg" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                      <img class="d-block w-100" src="assets/images/product-image-1-1200x600.jpg" alt="Third slide">
+                      <img class="d-block w-100" src="assets/images/<?php echo $data['foto_produk'] ?>" alt="First slide">
                     </div>
                   </div>
-                  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                  </a>
                 </div>
 
                 <br>
@@ -137,22 +148,28 @@
 
               <div class="col-md-4">
                 <div class="contact-form">
-                  <form action="beli.php">
-                    <div class="form-group">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi ratione molestias maxime odio!</p>
+                <form action="#">
+                  <div class="form-group">
+                      <h2><?php echo $data['nama_produk']; ?></h2>
+                      <hr>
+                      <h6>Harga : Rp. <?php echo number_format($data['harga']); ?> </h6>
+                      <h6>Stok : <?php echo $data['stok']; ?></h6>
+                      <br>
+                      <h5>Deskripsi :</h5>
+                      <p><?php echo $data['deskripsi']; ?></p>
                     </div>
 
                     <div class="row">
                       <div class="col-md-6">
                         <label>Quantity</label>
 
-                        <input type="text" placeholder="1" name="quantity" required>
+                        <input type="number" placeholder="1" name="jumlah" min="1" max="<?php echo $data['stok']?>" required>
                       </div>
                     </div>
                     
                     <div class="main-button">
                         <button class='btn btn-primary' type='submit'>
-                          add to cart
+                          Tambah Keranjang
                         </button>
                     </div>
                   </form>

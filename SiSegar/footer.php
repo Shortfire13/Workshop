@@ -29,6 +29,7 @@
     		}
     		.footer p a {
     			color: orange;
+			}
     	</style>
 		<footer>
         	<div class="footer">

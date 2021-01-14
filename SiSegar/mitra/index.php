@@ -1,7 +1,30 @@
 <?php
+session_start();
 ob_start();
 require_once ('../koneksi/+koneksi.php');
 require_once ('../models/database.php');
+require ('../koneksi/koneksi.php');
+
+
+
+    //set cookie
+    if (isset($_COOKIE['id']) && isset($_COOKIE['key']) ) {
+        $id = $_COOKIE['id'];
+        $key = $_COOKIE['key'];
+
+        //ambil username berdasarkan id
+        $result = mysqli_query($koneksi, "SELECT username FROM admin WHERE id_admin = $id");
+        $data = mysqli_fetch_assoc($result);
+        
+        //cek cookie dan username
+        if ($key === hash('sha256', $data['username'])) {
+            $_SESSION['login'] = true;
+        }
+    }
+    if (!isset($_SESSION["login"])) {
+      header('Location:login.php');
+      exit;
+  }
 
 $connection = new Database($host,$user,$pass,$database);
 ?>
@@ -56,16 +79,25 @@ $connection = new Database($host,$user,$pass,$database);
           </ul>
 
           <ul class="nav navbar-nav navbar-right navbar-user">
-            <li class="dropdown user-dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-                <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
-                <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
-                <li class="divider"></li>
-                <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
-              </ul>
-            </li>
+          <?php
+              if (isset($_SESSION["login"]) && isset($_SESSION["nama"]) && isset($_SESSION["id_user"])) {
+              $nama_mitra = $_SESSION['nama'];
+
+              echo "<li class='dropdown user-dropdown'>";
+              echo "<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'><i class='fa fa-user'></i> $nama_mitra <b class='caret'></b></a>";
+              echo "<ul class='dropdown-menu'>";
+              echo "<li><a href='#'><i class='fa fa-user'></i> Profile</a></li>";
+              echo "<li><a href='#'><i class='fa fa-envelope'></i> Inbox <span class='badge'>7</span></a></li>";
+              echo "<li><a href='#'><i class='fa fa-gear'></i> Settings</a></li>";
+              echo "<li class='divider'></li>";
+              echo "<li><a href='logout.php'><i class='fa fa-power-off'></i> Log Out</a></li>";
+              echo "</ul>";
+              echo "</li>";
+              }
+          ?>
+ 
+              
+            
           </ul>
         </div><!-- /.navbar-collapse -->
       </nav>

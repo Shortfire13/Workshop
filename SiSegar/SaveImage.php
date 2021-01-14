@@ -1,3 +1,25 @@
+<?php
+require 'koneksi/koneksi.php';
+session_start();
+
+    //set cookie
+    if (isset($_COOKIE['id']) && isset($_COOKIE['key']) ) {
+        $id = $_COOKIE['id'];
+        $key = $_COOKIE['key'];
+
+        //ambil username berdasarkan id
+        $result = mysqli_query($koneksi, "SELECT username FROM admin WHERE id_admin = $id");
+        $data = mysqli_fetch_assoc($result);
+        
+        //cek cookie dan username
+        if ($key === hash('sha256', $data['username'])) {
+            $_SESSION['login'] = true;
+        }
+    }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

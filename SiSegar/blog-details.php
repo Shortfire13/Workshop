@@ -1,3 +1,25 @@
+<?php
+require 'koneksi/koneksi.php';
+session_start();
+
+    //set cookie
+    if (isset($_COOKIE['id']) && isset($_COOKIE['key']) ) {
+        $id = $_COOKIE['id'];
+        $key = $_COOKIE['key'];
+
+        //ambil username berdasarkan id
+        $result = mysqli_query($koneksi, "SELECT username FROM admin WHERE id_admin = $id");
+        $data = mysqli_fetch_assoc($result);
+        
+        //cek cookie dan username
+        if ($key === hash('sha256', $data['username'])) {
+            $_SESSION['login'] = true;
+        }
+    }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,20 +68,28 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="index.php">Home</a></li>
+                            <li><a href="index.php" class="active">Home</a></li>
                             <li><a href="products.php">Products</a></li>
-                            <li><a href="checkout.php">Checkout</a></li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
-                              
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="about.php">About Us</a>
-                                    <a class="dropdown-item active" href="blog.php">Blog</a>
-                                    <a class="dropdown-item" href="testimonials.php">Testimonials</a>
-                                    <a class="dropdown-item" href="terms.php">Terms</a>
-                                </div>
-                            </li>
-                            <li><a href="contact.php">Contact</a></li> 
+                            <li><a href="about.php">About</a></li> 
+
+                            <?php
+                                if (isset($_SESSION["login"]) && isset($_SESSION["username_user"]) && isset($_SESSION["id_user"])) {
+                                    $username = $_SESSION['username_user'];
+
+                                    echo "<li class='dropdown'>";
+                                    echo "<a class='dropdown-toggle' data-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>Halo, $username </a>";
+                                    echo "<div class='dropdown-menu'>";
+                                    echo "<a class='dropdown-item' href='profile.php'>Profile Saya</a>";
+                                    echo "<a class='dropdown-item' href='keranjang.php'>Keranjang</a>";
+                                    echo "<a class='dropdown-item' href='logout.php'>Logout</a>";
+                                    echo "</div>";
+                                    echo "</li>";
+                                } else {
+                                    echo "<li></li>";
+                                    echo "<li><a href='register.php'>Daftar</a></li>";
+                                    echo "<li><a href='login.php'>Masuk</a></li>";
+                                }
+                            ?> 
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
