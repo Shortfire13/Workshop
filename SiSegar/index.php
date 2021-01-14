@@ -79,12 +79,11 @@ session_start();
                             <?php
                                 if (isset($_SESSION["login"]) && isset($_SESSION["username_user"]) && isset($_SESSION["id_user"])) {
                                     $username = $_SESSION['username_user'];       
-                                echo "<li class='dropdown'>";
-                                echo "<a class='dropdown-toggle' data-toggle='dropdown' href='#''>Menu</a>";
-                                echo "<div class='dropdown-menu'>";
-                                echo "<a class='dropdown-item' href='blog.php'>Keranjang</a>";
-                                 echo "<a class='dropdown-item' href='profile.php'>MY Profile</a>";
-                                echo "<a class='dropdown-item' href='testimonials.php'>Testimonials</a>";
+                                    echo "<li class='dropdown'>";
+                                    echo "<a class='dropdown-toggle' data-toggle='dropdown' href='#''>Halo, $username</a>";
+                                    echo "<div class='dropdown-menu'>";
+                                    echo "<a class='dropdown-item' href='profile.php'>Profil Saya</a>";
+                                    echo "<a class='dropdown-item' href='keranjang.php'>Keranjang</a>";
                                     echo "<a class='dropdown-item' href='logout.php'>Logout</a>";
                                     echo "</div>";
                                     echo "</li>";
