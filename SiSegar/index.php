@@ -75,17 +75,16 @@ session_start();
                             <li><a href="index.php" class="active">Home</a></li>
                             <li><a href="products.php">Products</a></li>
                             <li><a href="about.php">About</a></li> 
-                            <li><a href="profile.php">Profile</a></li>
+                            
                             <?php
                                 if (isset($_SESSION["login"]) && isset($_SESSION["username_user"]) && isset($_SESSION["id_user"])) {
-                                    $username = $_SESSION['username_user'];
-
-                                    echo "<li class='dropdown'>";
-                                    echo "<a class='dropdown-toggle' data-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'></a>";
-                                    echo "<div class='dropdown-menu'>";
-                                    echo "<a class='dropdown-item' href='about.php'>My Account</a>";
-                                    echo "<a class='dropdown-item' href='blog.php'>Keranjang</a>";
-                                    echo "<a class='dropdown-item' href='testimonials.php'>Testimonials</a>";
+                                    $username = $_SESSION['username_user'];       
+                                echo "<li class='dropdown'>";
+                                echo "<a class='dropdown-toggle' data-toggle='dropdown' href='#''>Menu</a>";
+                                echo "<div class='dropdown-menu'>";
+                                echo "<a class='dropdown-item' href='blog.php'>Keranjang</a>";
+                                 echo "<a class='dropdown-item' href='profile.php'>MY Profile</a>";
+                                echo "<a class='dropdown-item' href='testimonials.php'>Testimonials</a>";
                                     echo "<a class='dropdown-item' href='logout.php'>Logout</a>";
                                     echo "</div>";
                                     echo "</li>";
