@@ -136,51 +136,38 @@ if (!isset($_SESSION["login"])) {
                             <th>Kuantitas</th>
                             <th>Subtotal</th>
                         </tr>
+                        <?php
+                            require_once "koneksi/koneksi.php";
+                            $id_user = $_SESSION["id_user"];
+                            $sql = "SELECT * FROM keranjang inner join produk on keranjang.id_produk = produk.id_produk where id_user=$id_user";
+                            $query = mysqli_query($koneksi, $sql);
+                            $count = mysqli_num_rows($query);
+                            $total = 0;
+                            if($count < 1){
+                                echo "<h1>Keranjang Belanja Kosong</h1>";
+                            }else{
+                                while($data = mysqli_fetch_array($query)){ 
+                                    $subtotal = $data ['harga'] * $data ['jumlah'];
+                                    $total = $total+$subtotal;
+                        ?>
                         <tr>
                             <td>
                                 <div class="cart-info">
-                                    <img src="assets/images/selada.jpg" alt="">
+                                    <img src="assets/images/<?php echo $data['foto_produk'];?>" alt="">
                                     <div>
-                                        <p>Selada</p>
-                                        <small>Harga: $50.00</small>
+                                        <p><?php echo $data['nama_produk'] ?></p>
+                                        <small>Harga: Rp <?php echo number_format($data['harga'],0,'','.');?></small>
                                         <br>
-                                        <a href="">Remove</a> 
+                                        <a href="remove.php?id_produk=<?php echo $data['id_produk'];?>">Remove</a> 
                                     </div>
                                 </div>
                             </td>
-                            <td><input type="number" value="1"></td>
-                            <td>50.00</td>
-                        </tr>
-                        <tr>
                             <td>
-                                <div class="cart-info">
-                                    <img src="assets/images/selada.jpg" alt="">
-                                    <div>
-                                        <p>Selada</p>
-                                        <small>Harga: $50.00</small>
-                                        <br>
-                                        <a href="">Remove</a> 
-                                    </div>
-                                </div>
+                                <p><?php echo $data['jumlah']; ?></p>
                             </td>
-                            <td><input type="number" value="1"></td>
-                            <td>50.00</td>
+                            <td>Rp <?php echo number_format($subtotal,0,'','.'); ?></td>
                         </tr>
-                        <tr>
-                            <td>
-                                <div class="cart-info">
-                                    <img src="assets/images/selada.jpg" alt="">
-                                    <div>
-                                        <p>Selada</p>
-                                        <small>Harga: $50.00</small>
-                                        <br>
-                                        <a href="">Remove</a> 
-                                    </div>
-                                </div>
-                            </td>
-                            <td><input type="number" value="1"></td>
-                            <td>50.00</td>
-                        </tr>
+                        <?php } }?>
                     </table>
 
                     <!---- Total Harga dan Button Checkout ---->
@@ -189,7 +176,7 @@ if (!isset($_SESSION["login"])) {
                         <table>
                             <tr>
                                 <td>Total</td>
-                                <td>$100.00</td>
+                                <td>Rp <?php echo number_format($total,0,'','.');?></td>
                             </tr>
                             <tr>
                                 <td></td>

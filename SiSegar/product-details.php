@@ -117,7 +117,7 @@
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Rp. <?php echo $data['harga'];?> /100gr</h2>
+                        <h2>Produk Detail</h2>
                     </div>
                 </div>
             </div>
@@ -149,11 +149,11 @@
 
               <div class="col-md-4">
                 <div class="contact-form">
-                <form action="#">
+                <form action="tambah-keranjang.php?idproduk=<?php echo $id_produk;?>" method='GET'>
                   <div class="form-group">
                       <h2><?php echo $data['nama_produk']; ?></h2>
                       <hr>
-                      <h6>Harga : Rp. <?php echo number_format($data['harga']); ?> </h6>
+                      <h6>Harga : Rp <?php echo number_format($data['harga'],0,'','.'); ?> </h6>
                       <h6>Stok : <?php echo $data['stok']; ?></h6>
                       <br>
                       <h5>Deskripsi :</h5>
@@ -163,7 +163,7 @@
                     <div class="row">
                       <div class="col-md-6">
                         <label>Quantity</label>
-
+                        <input type="hidden" name="id_produk" value="<?php echo $id_produk;?>">
                         <input type="number" placeholder="1" name="jumlah" min="1" max="<?php echo $data['stok']?>" required>
                       </div>
                     </div>

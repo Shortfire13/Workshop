@@ -125,7 +125,6 @@ session_start();
 </div>
 </div>
             <?php
-            session_start();
             include_once "koneksi/koneksi.php";
             if (isset($_GET['cari'])) {
                 $cari = $_GET['cari'];
@@ -143,7 +142,7 @@ session_start();
                         </div>
                         <div class="down-content">  
                             <h4><?php echo $data['nama_produk']?></h4>
-                            <h4>Rp.<?php echo $data['harga'] ?></h4>
+                            <h4>Rp <?php echo number_format($data['harga'],0,'','.') ?></h4>
                             
                            <ul>
                                 <a href="product-details.php?id_produk=<?php echo $data['id_produk']; ?>" class="btn btn-warning btn-md">Beli Sekarang</a>
