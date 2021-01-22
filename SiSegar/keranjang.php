@@ -171,7 +171,6 @@ if (!isset($_SESSION["login"])) {
                     </table>
 
                     <!---- Total Harga dan Button Checkout ---->
-
                     <div class="total-harga">
                         <table>
                             <tr>
@@ -180,7 +179,9 @@ if (!isset($_SESSION["login"])) {
                             </tr>
                             <tr>
                                 <td></td>
-                                <td> <button type="submit" class="btn btn-checkout text-uppercase" name="checkout">Checkout</button></td>
+                                <td>
+                                    <a href="checkout.php?total=<?php echo $total;?>" class="btn btn-primary">Checkout</a>
+                                </td>
                             </tr>
                         </table>
                     </div>

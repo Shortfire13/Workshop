@@ -67,7 +67,7 @@ session_start();
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.php" class="logo">Food Store <em> Website</em></a>
+                        <a href="index.php" class="logo">Si <em> Segar</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
@@ -112,8 +112,8 @@ session_start();
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Easy <em>Checkout</em></h2>
-                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+                        <h2>Ayo <em>Bayar !!</em></h2>
+                        <p>SEGERA LAKUKAN TRANSAKSI AGAR PESANANMU CEPAT SAMPAI</p>
                     </div>
                 </div>
             </div>
@@ -127,77 +127,39 @@ session_start();
             <div class="row">
                 <div class="col-md-8">
                     <div class="contact-form">
-                        <form id="contact" action="" method="post">
+                        <form id="contact" action="checkout-proses.php" method="post">
+                        <?php
+                        $id = $_SESSION['id_user'];
+                        $query = mysqli_query($koneksi, "SELECT * FROM user WHERE id_user='$id'");
+                        $data = mysqli_fetch_array($query);
+                        $subtotal = $_GET['total'];
+                        $ongkir = 5000;
+                        $total = $subtotal + $ongkir;
+                        ?>
                            <div class="row">
-                                <!-- <div class="col-sm-6 col-xs-12">
-                                     <label>Title:</label>
-                                     <select data-msg-required="This field is required.">
-                                          <option value="">-- Choose --</option>
-                                          <option value="dr">Dr.</option>
-                                          <option value="miss">Miss</option>
-                                          <option value="mr">Mr.</option>
-                                          <option value="mrs">Mrs.</option>
-                                          <option value="ms">Ms.</option>
-                                          <option value="other">Other</option>
-                                          <option value="prof">Prof.</option>
-                                          <option value="rev">Rev.</option>
-                                     </select>
-                                </div> -->
                                 <div class="col-sm-6 col-xs-12">
                                      <label>Nama:</label>
-                                     <input type="text" require>
-                                </div>
-                           </div>
-                           <div class="row">
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Email:</label>
-                                     <input type="text" require>
+                                     <input type="text" name="nama" value="<?php echo $data['nama_user']; ?>" disabled>
                                 </div>
                            </div>
                            <div class="row">
                                 <div class="col-sm-6 col-xs-12">
                                      <label>No. Tlpn/WA:</label>
-                                     <input type="text" require>
+                                     <input type="number" name="telepon" value="<?php echo $data['no_tlp']; ?>" require>
                                 </div>
                             </div>
                            <div class="row">
                                 <div class="col-sm-6 col-xs-12">
-                                     <label>Alamat:</label>
-                                     <input type="text" require>
+                                     <label>Lokasi Pengiriman:</label>
+                                     <input type="text" name="lokasi" value="<?php echo $data['alamat']; ?>" require>
+                                     <input type="hidden" name="total" value="<?php echo $total; ?>">
                                 </div>
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Kota:</label>
-                                     <input type="text" require>
-                                </div>
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Kecamatan:</label>
-                                     <input type="text" require>
-                                </div>
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Desa:</label>
-                                     <input type="text" require>
-                                </div>
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Metode Pembayaran</label>
-                                     
-                                     <select>
-                                          <option value="">-- Pilih --</option>
-                                          <option value="bank">Transfer Bank</option>
-                                          <option value="cash">Tunai</option>
-                                     </select>
-                                </div>
-                           </div>
-                            
+                            </div>
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="main-button">
-                                        <div class="float-left">
-                                            <a href="#">Back</a>
-                                        </div>
-
-                                        <div class="float-right">
-                                            <a href="#">Finish</a>
-                                        </div>
+                                        <a href="keranjang.php">Back</a>
+                                        <button type="submit">Finish</button>
                                     </div>
                                 </div>
                             </div>
@@ -216,7 +178,7 @@ session_start();
                             </div>
 
                             <div class="col-6">
-                                <h5 class="text-right">$ 128.00</h5>
+                                <h5 class="text-right">Rp <?php echo number_format($subtotal,0,'','.');?></h5>
                             </div>
                          </div>
                       </li>
@@ -224,27 +186,14 @@ session_start();
                       <li class="list-group-item" style="margin:0 0 -1px">
                          <div class="row">
                             <div class="col-6">
-                                <strong>Extra</strong>
+                                <strong>Ongkir</strong>
                             </div>
 
                             <div class="col-6">
-                                <h5 class="text-right">$ 0.00</h5>
+                                <h5 class="text-right">Rp <?php echo number_format($ongkir,0,'','.');?></h5>
                             </div>
                          </div>
                       </li>
-
-                      <li class="list-group-item" style="margin:0 0 -1px">
-                         <div class="row">
-                            <div class="col-6">
-                                <strong>Tax</strong>
-                            </div>
-
-                            <div class="col-6">
-                                <h5 class="text-right">$ 10.00</h5>
-                            </div>
-                         </div>
-                      </li>
-
                       <li class="list-group-item" style="margin:0 0 -1px">
                          <div class="row">
                             <div class="col-6">
@@ -252,19 +201,7 @@ session_start();
                             </div>
 
                             <div class="col-6">
-                                <h4 class="text-right">$ 138.00</h4>
-                            </div>
-                         </div>
-                      </li>
-
-                      <li class="list-group-item" style="margin:0 0 -1px">
-                         <div class="row">
-                            <div class="col-6">
-                                <strong>Deposit</strong>
-                            </div>
-
-                            <div class="col-6">
-                                <h5 class="text-right">$ 10.00</h5>
+                                <h4 class="text-right">Rp <?php echo number_format($total,0,'','.');?></h4>
                             </div>
                          </div>
                       </li>
