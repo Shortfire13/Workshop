@@ -130,6 +130,33 @@ if (!isset($_SESSION["login"])) {
                 <!-- ***** Mulai Keranjang ***** -->
             
                 <div class="small-container cart-page">
+                <?php
+                  if (isset($_GET['status'])) {
+                    $status = $_GET['status'];
+                    $barang = $_GET['barang'];
+                    if ($status == "exist") {
+                      
+                      ?>
+                      <div class="alert alert-success">
+                      <strong>Produk sudah ada dalam keranjang,</strong> silahkan hapus dari keranjang terlebih dahulu jika ingin menambahkan kuantitas produk.
+                      </div>
+                    <?php
+                    } if ($status == "done") {
+                        ?>
+                        <div class="alert alert-success">
+                        <strong>Produk berhasil ditambahkan.</strong>
+                        </div>
+                        <?php
+                    } if ($status == "stok") {
+                        echo "<div class='alert alert-danger'>";
+                        echo "<strong>Jumlah produk $barang yang anda minta melebihi stok yang kami miliki.</strong>";
+                        echo "</div>";
+                        ?>
+
+                    <?php
+                    }
+                  }
+                  ?>
                     <table class="tabel-keranjang">
                         <tr>
                             <th>Produk</th>            

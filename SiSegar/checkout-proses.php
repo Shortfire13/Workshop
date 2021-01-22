@@ -51,5 +51,5 @@
     // Menghapus data keranjang ketika sudah terbeli
     $sql_hapus = "DELETE FROM keranjang WHERE id_user = $id";
     $query_hapus = mysqli_query($koneksi,$sql_hapus);
-    header("location:products.php?transaksisedangdiproses");
+    header("Location: products.php?status=done");
 ?>

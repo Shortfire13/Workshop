@@ -13,7 +13,7 @@ $sql = "select * from keranjang where id_produk='$id_produk' and id_user='$id_us
         // Tambah produk ke keranjang
         $quantity = $_GET["jumlah"];
         $query = mysqli_query($koneksi, "INSERT into keranjang values ($id_user, $id_produk, $quantity); ");
-        header('location:keranjang.php');
+        header("Location: keranjang.php?status=done");
     }
 
 ?>

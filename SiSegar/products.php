@@ -127,7 +127,20 @@ session_start();
 
             <div class="row">
                   <div class="container">
+
     <div class="search-box">
+    <?php
+                  if (isset($_GET['status'])) {
+                    $status = $_GET['status'];
+                    if ($status == "done") {
+                      ?>
+                      <div class="alert alert-success">
+                      <strong>Pesanan sedang diproses.</strong>
+                      </div>
+                    <?php
+                    }
+                  }
+                  ?>
   <form action="products.php" class="form-inline">
     <input class="form-control mr-sm-3" type="search" name="cari" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline my-2 my-sm-0" type="submit">Search</button> 

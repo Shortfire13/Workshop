@@ -144,14 +144,14 @@ session_start();
                            </div>
                            <div class="row">
                                 <div class="col-sm-6 col-xs-12">
-                                     <label>No. Tlpn/WA:</label>
-                                     <input type="number" name="telepon" value="<?php echo $data['no_tlp']; ?>" require>
+                                     <label>No. Telepon/WA:</label>
+                                     <input type="text" name="telepon" value="<?php echo $data['no_tlp']; ?>" onkeypress="return event.charCode >= 48 && event.charCode <=57" maxlength="15"  require>
                                 </div>
                             </div>
                            <div class="row">
                                 <div class="col-sm-6 col-xs-12">
                                      <label>Lokasi Pengiriman:</label>
-                                     <input type="text" name="lokasi" value="<?php echo $data['alamat']; ?>" require>
+                                     <input type="text" name="lokasi" placeholder="Lokasi pengiriman" require>
                                      <input type="hidden" name="total" value="<?php echo $total; ?>">
                                 </div>
                             </div>
