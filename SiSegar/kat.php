@@ -142,11 +142,10 @@ session_start();
                         </div>
                         <div class="down-content">  
                             
-                            <h4><?php echo $data['nama_produk']?></h4>
-                            <h4>Rp.<?php echo $data['harga'] ?></h4>
-                           
-                            <ul class="social-icons btn">
-                                <li><a href="product-details.php">Beli</a></li>
+                             <h4><?php echo $data['nama_produk']?></h4>
+                            <h4>Rp <?php echo number_format($data['harga'],0,'','.') ?></h4>
+                            <ul>
+                                <a href="product-details.php?id_produk=<?php echo $data['id_produk']; ?>" class="btn btn-warning btn-md">Beli Sekarang</a>
                             </ul>
                         </div>
                     </div>

@@ -128,7 +128,7 @@ session_start();
             <div class="row">
                 <?php
                     include_once "koneksi/koneksi.php";
-                    session_start();
+                   
                     $id = $_SESSION['id_user'];
                     $query_mysql = mysqli_query($koneksi, "SELECT * FROM user WHERE id_user='$id' ");
                     while ($data = mysqli_fetch_array($query_mysql)) {

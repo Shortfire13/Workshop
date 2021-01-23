@@ -126,23 +126,24 @@ session_start();
             <div class="row">
                  <div class="col-lg-12">
                  <br/>
-                 <a href="tambah.php" class="btn btn-success btn-md"><span class="fa fa-plus"></span> Tambah</a>
+                
                  <table class="table table-hover table-bordered" style="margin-top: 10px">
                     <tr class="success">
                         
                         <th>id transaksi</th>
                         <th>id produk</th>
                         <th>tgl Beli</th>
-                        <th>status</th>
                          <th>alamat</th>
                          <th>sub total</th>
                           <th>total</th> 
-                           <th>opsi bayar</th>                       
+                           <th>opsi bayar</th>
+                           <th>status</th>
+                           <th>Action</th>                       
                   
                     </tr>
                      <?php
                       include_once "koneksi/koneksi.php";
-                    session_start();
+                  
                         $id = $_SESSION['id_user'];
                     $query_mysql = mysqli_query($koneksi, "SELECT * FROM transaksi WHERE id_user = '$id' ");
                     while ($data = mysqli_fetch_array($query_mysql)) {
@@ -157,6 +158,7 @@ session_start();
                         <td><?php echo $data['sub_total'];?></td>
                         <td><?php echo $data['total'];?></td>
                         <td><?php echo $data['opsi_bayar'];?></td>
+                          <td><?php echo $data['konfirmasi'];?></td>
                        
                     </tr>
                  
