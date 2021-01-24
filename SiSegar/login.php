@@ -32,10 +32,17 @@ if (isset($_SESSION["login"])) {
                   if (isset($_GET['pesan'])) {
                     $pesan = $_GET['pesan'];
                     if ($pesan == "gagal") {
-                      ?>
+                        ?>
                       <div class="alert alert-danger">
                       <strong>Login Gagal.</strong> Coba periksa username atau password Anda.
                       </div>
+                    <?php
+                    }if ($pesan == "berhasil") {
+                     ?>
+                     <div class="alert alert-success">
+                     Password berhasil diganti.
+                     </div> 
+                    
                     <?php
                     }
                   }
@@ -64,7 +71,7 @@ if (isset($_SESSION["login"])) {
                             <hr class="my-4">
                             
                             <div class="text-center" mb-2>
-                                <a href="#" class="forget-link">Lupa Password?</a>
+                                <a href="lupa-password.php" class="forget-link">Lupa Password?</a>
                             </div>
 
                             <div class="text-center mb-2">
