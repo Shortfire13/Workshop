@@ -133,7 +133,7 @@ if (!isset($_SESSION["login"])) {
                 <?php
                   if (isset($_GET['status'])) {
                     $status = $_GET['status'];
-                    $barang = $_GET['barang'];
+                    
                     if ($status == "exist") {
                       
                       ?>
@@ -248,9 +248,9 @@ if (!isset($_SESSION["login"])) {
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p>
-                        Copyright © 2020 Company Name
-                        - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a>
+                  <p>
+                        Copyright © 2020 Sisegar
+                        
                     </p>
                 </div>
             </div>

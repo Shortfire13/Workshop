@@ -130,35 +130,30 @@ session_start();
                  <table class="table table-hover table-bordered" style="margin-top: 10px">
                     <tr class="success">
                         <th>No</th>
-                        <th>id transaksi</th>
-                        <th>tgl Beli</th>
-                         <th>alamat</th>
-                         <th>sub total</th>
-                          <th>Status</th> 
-                           <th>Action</th>                       
-                  
+                        <th>Nama produk</th>
+                        <th>jumlah</th>
+                        <th>Harga Produk</th>
+                         <th>sub total</th>                     
                     </tr>
                      <?php
                       include_once "koneksi/koneksi.php";
                   
-                        $id = $_SESSION['id_user'];
-                $query_mysql = mysqli_query($koneksi, "SELECT * FROM transaksi t INNER JOIN user u ON t.id_user = u.id_user WHERE u.id_user = '$id' ");
+                        $id = $_GET['id_transaksi'];
+                $query_mysql = mysqli_query($koneksi, "SELECT * FROM transaksi t INNER JOIN detail_transaksi u ON t.id_transaksi = u.id_transaksi INNER JOIN produk p ON u.id_produk=p.id_produk WHERE u.id_transaksi = $id ");
                 $no = 1;
-                while ($data = mysqli_fetch_array($query_mysql)) {
+                $tunggal = mysqli_fetch_array($query_mysql);
+                echo "<h5>Tanggal : $tunggal[tgl_beli]</h5><br>";
+                echo "<h5>Tanggal : $tunggal[status]</h5><br>";
+                $query_mysqli = mysqli_query($koneksi, "SELECT * FROM transaksi t INNER JOIN detail_transaksi u ON t.id_transaksi = u.id_transaksi INNER JOIN produk p ON u.id_produk=p.id_produk WHERE u.id_transaksi = $id ");
+                while ($data = mysqli_fetch_array($query_mysqli)) {
                      ?>
                     <tr>
                         <td><?php echo $no++ ?></td>
-                        <td><?php echo $data['id_transaksi'];?></td>
-                        <td><?php echo $data['tgl_beli'];?></td>
-                       <td><?php echo $data['alamat'];?></td>
-                        <td><?php echo $data['total'];?></td>
-                         <td><?php echo $data['status'];?></td>
-                          <td>
-                            <?php if ($data['status'] != 'Barang Sudah Sampai'): ?>
-                                <a href="riwayat.php?id=<?php echo $data['id_transaksi']; ?>" class="btn btn-warning btn-md">Konfirmasi</a> |
-                            <?php endif ?>
-                            <a href="detailriwayat.php?id_transaksi=<?php echo $data['id_transaksi']; ?>" class="btn btn-warning btn-md">Detail</a>
-                        </td> 
+                        
+                        <td><?php echo $data['nama_produk'];?></td>
+                       <td><?php echo $data['jumlah'];?></td>
+                       <td><?php echo $data['harga']; ?></td>
+                        <td><?php echo $data['harga']*$data['jumlah'];?></td> 
                     </tr>
                  <?php } ?>
                     
@@ -168,13 +163,6 @@ session_start();
             
         </div>
     </section>
-    <?php  
-        if (isset($_GET['id'])) {
-            $id = $_GET['id'];
-            $query = mysqli_query($koneksi,"UPDATE transaksi SET status='Barang Sudah Sampai' WHERE id_transaksi=$id");
-            header('location:products.php?pesan=konfrimasiberhasil');
-        }
-    ?>
     <!-- ***** Blog End ***** -->
 
     <!-- ***** Footer Start ***** -->
