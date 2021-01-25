@@ -114,8 +114,8 @@ session_start();
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Read our <em>Blog</em></h2>
-                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+                        <h2>My <em>Profile</em></h2>
+                        
                     </div>
                 </div>
             </div>
@@ -128,7 +128,7 @@ session_start();
             <div class="row">
                 <?php
                     include_once "koneksi/koneksi.php";
-                   
+                    
                     $id = $_SESSION['id_user'];
                     $query_mysql = mysqli_query($koneksi, "SELECT * FROM user WHERE id_user='$id' ");
                     while ($data = mysqli_fetch_array($query_mysql)) {
@@ -143,6 +143,8 @@ session_start();
                 <div class="col-lg-7">
                     <form method="post" enctype="multipart/form-data" action="updateprofile.php">
                       <div class="mb-3">
+                        <input type="hidden" name="id" value="<?= $id ?>">
+                        
                         <label for="nama" class="form-label">Nama</label>
                         <input type="text" name="nama" class="form-control" id="nama" value="<?= $data['nama_user'] ?>">
                       </div>
