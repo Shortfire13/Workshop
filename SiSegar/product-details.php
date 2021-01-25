@@ -70,15 +70,13 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.php" class="logo">Food Store <em> Website</em></a>
+                        <a href="index.php" class="logo">Si Segar<em> Website</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li><a href="index.php" class="active">Home</a></li>
                             <li><a href="products.php">Products</a></li>
-                            <li><a href="about.php">About</a></li> 
-
-                            <?php
+                             <?php
                                 if (isset($_SESSION["login"]) && isset($_SESSION["username_user"]) && isset($_SESSION["id_user"])) {
                                     $username = $_SESSION['username_user'];
 
@@ -139,7 +137,7 @@
                   </ol>
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img class="d-block w-100" src="assets/images/<?php echo $data['foto_produk'] ?>" alt="First slide">
+                      <img class="d-block w-100 image-size" src="assets/images/<?php echo $data['foto_produk'] ?>" alt="First slide">
                     </div>
                   </div>
                 </div>

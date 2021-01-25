@@ -1491,3 +1491,18 @@ Login & Register Page
   border-radius: 4px;
   width: 280px;
 }
+
+/* 
+---------------------------------------------
+image size
+--------------------------------------------- 
+*/
+.trainer-item .image-size{
+  width: 300px;
+  height: 250px;
+}
+
+.carousel-item .image-size{
+  width: 500px;
+  height: 500px;
+}

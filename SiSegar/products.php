@@ -162,7 +162,7 @@ session_start();
             
                 <div class="col-lg-4">
                     <div class="trainer-item">
-                        <div class="image-thumb">
+                        <div class="image-thumb image-size">
                             <img src="assets/images/<?php echo $data['foto_produk'] ?>">
                         </div>
                         <div class="down-content">  
