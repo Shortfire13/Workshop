@@ -152,7 +152,7 @@
                       <h2><?php echo $data['nama_produk']; ?></h2>
                       <hr>
                       <h6>Harga : Rp <?php echo number_format($data['harga'],0,'','.'); ?> </h6>
-                      <h6>Stok : <?php echo $data['stok']; ?></h6>
+                      <h6>Stok : <?php echo $data['stok'];?> <strong>@<?php echo $data['berat'];?>gram<strong></h6>
                       <br>
                       <h5>Deskripsi :</h5>
                       <p><?php echo $data['deskripsi']; ?></p>
