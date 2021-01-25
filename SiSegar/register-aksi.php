@@ -60,7 +60,7 @@ if (isset($_POST['username']) && isset($_POST['password'])
                 exit();
             }             
             else {
-                $sql = "INSERT INTO user VALUES('','$nama_user','$username_user', '$password_user', '' ,  '')";
+                $sql = "INSERT INTO user VALUES('','$nama_user','$username_user', '$password_user', '',  '', '')";
                 $result2 = mysqli_query($koneksi, $sql);
                 if ($result2) {
                     header("Location: login.php?success=Your account has been created successfully");
