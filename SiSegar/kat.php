@@ -70,8 +70,6 @@ session_start();
                         <ul class="nav">
                             <li><a href="index.php" class="active">Home</a></li>
                             <li><a href="products.php">Products</a></li>
-                            <li><a href="about.php">About</a></li> 
-
                             <?php
                                 if (isset($_SESSION["login"]) && isset($_SESSION["username_user"]) && isset($_SESSION["id_user"])) {
                                     $username = $_SESSION['username_user'];
@@ -81,6 +79,7 @@ session_start();
                                     echo "<div class='dropdown-menu'>";
                                     echo "<a class='dropdown-item' href='profile.php'>Profile Saya</a>";
                                     echo "<a class='dropdown-item' href='keranjang.php'>Keranjang</a>";
+                                    echo "<a class='dropdown-item' href='riwayat.php'>Riwayat Transaksi</a>";
                                     echo "<a class='dropdown-item' href='logout.php'>Logout</a>";
                                     echo "</div>";
                                     echo "</li>";
@@ -137,7 +136,7 @@ session_start();
             
                 <div class="col-lg-4">
                     <div class="trainer-item">
-                        <div class="image-thumb">
+                        <div class="image-thumb image-size">
                               <img src="assets/images/<?php echo $data['foto_produk'] ?>" alt="">
                         </div>
                         <div class="down-content">  

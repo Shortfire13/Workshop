@@ -73,7 +73,6 @@ session_start();
                         <ul class="nav">
                             <li><a href="index.php">Home</a></li>
                             <li><a href="products.php">Products</a></li>
-                            <li><a href="checkout.php">Checkout</a></li>
                             <?php
                                 if (isset($_SESSION["login"]) && isset($_SESSION["username_user"]) && isset($_SESSION["id_user"])) {
                                     $username = $_SESSION['username_user'];
@@ -112,8 +111,8 @@ session_start();
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Read our <em>Blog</em></h2>
-                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+                        <h2>Detail <em>Riwayat</em></h2>
+                        <p>Detail Riwayat Transaksi...</p>
                     </div>
                 </div>
             </div>
@@ -143,7 +142,7 @@ session_start();
                 $no = 1;
                 $tunggal = mysqli_fetch_array($query_mysql);
                 echo "<h5>Tanggal : $tunggal[tgl_beli]</h5><br>";
-                echo "<h5>Tanggal : $tunggal[status]</h5><br>";
+                echo "<h5>Status : $tunggal[status]</h5><br>";
                 $query_mysqli = mysqli_query($koneksi, "SELECT * FROM transaksi t INNER JOIN detail_transaksi u ON t.id_transaksi = u.id_transaksi INNER JOIN produk p ON u.id_produk=p.id_produk WHERE u.id_transaksi = $id ");
                 while ($data = mysqli_fetch_array($query_mysqli)) {
                      ?>

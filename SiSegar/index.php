@@ -74,8 +74,6 @@ session_start();
                         <ul class="nav">
                             <li><a href="index.php" class="active">Home</a></li>
                             <li><a href="products.php">Products</a></li>
-                            <li><a href="about.php">About</a></li> 
-                            
                             <?php
                                 if (isset($_SESSION["login"]) && isset($_SESSION["username_user"]) && isset($_SESSION["id_user"])) {
                                     $username = $_SESSION['username_user'];       
@@ -178,9 +176,8 @@ session_start();
                 <div class="col-lg-10 offset-lg-1">
                     <div class="cta-content">
                         <h2>Send us a <em>message</em></h2><br>
-                        <div class="main-button">
-                            <a href="contact.html">Contact us</a>
-                        </div>
+                        <br>
+                        <h3 style="color: white;">Email kami : sisegar12@gmail.com</h3>
                     </div>
                 </div>
             </div>

@@ -73,7 +73,6 @@ session_start();
                         <ul class="nav">
                             <li><a href="index.php">Home</a></li>
                             <li><a href="products.php">Products</a></li>
-                            <li><a href="checkout.php" class="active">Checkout</a></li>
                             <?php
                                 if (isset($_SESSION["login"]) && isset($_SESSION["username_user"]) && isset($_SESSION["id_user"])) {
                                     $username = $_SESSION['username_user'];
@@ -219,8 +218,7 @@ session_start();
             <div class="row">
                 <div class="col-lg-12">
                     <p>
-                        Copyright © 2020 Company Name
-                        - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a>
+                        Copyright © 2020 SiSegar
                     </p>
                 </div>
             </div>
