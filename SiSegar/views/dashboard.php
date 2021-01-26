@@ -2,7 +2,7 @@
           <div class="col-lg-12">
             <h1>Dashboard <small>MitraKu</small></h1>
             <ol class="breadcrumb">
-              <li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>
+              <li class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</li>
             </ol>
           </div>
         </div>
