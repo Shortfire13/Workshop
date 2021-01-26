@@ -9,17 +9,24 @@ class Barang {
 
     public function tampil($id = null){
         $db = $this->mysqli->conn;
-        $sql = "SELECT * FROM barang";
+        $sql = "SELECT * FROM produk JOIN kategori ON produk.id_kategori=kategori.id_kategori";
         if($id != null){
-            $sql .= " WHERE id_brg = $id";
+            $sql .= " WHERE id_produk = $id";
         }
         $query = $db->query($sql) or die ($db->error);
         return $query;
     }
 
-    public function tambah($nm_brg, $hrg_brg, $st_brg, $gbr_brg , $desc_brg, $ktg_brg){
+    public function tampil_tgl($tgl1, $tgl2){
         $db = $this->mysqli->conn;
-        $db->query("INSERT INTO barang VALUES ('','$nm_brg','$hrg_brg','$st_brg','$gbr_brg','$desc_brg','$ktg_brg')") or die ($db->error); 
+        $sql = "SELECT * FROM produk WHERE tgl_masuk BETWEEN '$tgl1' AND '$tgl2'";
+        $query = $db->query($sql) or die ($db->error);
+        return $query;
+    }
+
+    public function tambah($nama_produk, $harga, $stok, $foto_produk , $deskripsi){
+        $db = $this->mysqli->conn;
+        $db->query("INSERT INTO produk VALUES ('','$nama_produk','$harga','$stok','$foto_produk','$deskripsi', now())") or die ($db->error); 
     }
 
     public function edit($sql) {
@@ -29,7 +36,7 @@ class Barang {
 
     public function hapus($id){
       $db = $this->mysqli->conn;
-      $db->query("DELETE FROM barang WHERE id_brg = '$id'") or die ($db->error);
+      $db->query("DELETE FROM produk WHERE id_produk = '$id'") or die ($db->error);
     }
 
     function __desctruct(){

@@ -5,20 +5,19 @@ include "../models/m_barang.php";
 $connection = new Database($host,$user,$pass,$database);
 $brg = new Barang($connection);
 
-$id_brg = $_POST['id_brg'];
-$nm_brg = $connection->conn->real_escape_string($_POST['nm_brg']);
-$hrg_brg = $connection->conn->real_escape_string($_POST['hrg_brg']);
-$st_brg = $connection->conn->real_escape_string($_POST['st_brg']);
-$desc_brg = $connection->conn->real_escape_string($_POST['desc_brg']);
-$ktg_brg = $connection->conn->real_escape_string($_POST['ktg_brg']);
-
-$pict = $_FILES['gbr_brg']['name'];
-$extensi = explode(".", $_FILES['gbr_brg']['name']);
+$id_brg = $_POST['id_produk'];
+$nm_brg = $connection->conn->real_escape_string($_POST['nama_produk']);
+$hrg_brg = $connection->conn->real_escape_string($_POST['harga']);
+$st_brg = $connection->conn->real_escape_string($_POST['stok']);
+$desc_brg = $connection->conn->real_escape_string($_POST['deskripsi']);
+ 
+$pict = $_FILES['foto_produk']['name'];
+$extensi = explode(".", $_FILES['foto_produk']['name']);
 $gbr_brg ="brg-".round(microtime(true)).".".end($extensi);
-$sumber = $_FILES['gbr_brg']['tmp_name'];
+$sumber = $_FILES['foto_produk']['tmp_name'];
 
 if($pict == '') {
-    $brg->edit("UPDATE barang SET nama_brg = '$nm_brg', harga = '$hrg_brg', stok = '$st_brg', deskripsi = '$desc_brg', kategori = '$ktg_brg' WHERE id_brg = '$id_brg'");
+    $brg->edit("UPDATE produk SET nama_produk = '$nm_brg', harga = '$hrg_brg', stok = '$st_brg', deskripsi = '$desc_brg' WHERE id_produk = '$id_brg'");
     echo "<script>window.location='?page=barang';</script>";
 } else {
     $gbr_awal = $brg->tampil($id_brg)->fetch_object()->gbr_brg;
@@ -26,7 +25,7 @@ if($pict == '') {
     
     $upload = move_uploaded_file($sumber, "../assets/img/barang/".$gbr_brg);
     if($upload){
-      $brg->edit("UPDATE barang SET nama_brg = '$nm_brg', harga = '$hrg_brg', stok = '$st_brg', deskripsi = '$desc_brg', kategori = '$ktg_brg', gbr_brg = '$gbr_brg' WHERE id_brg = '$id_brg'");
+      $brg->edit("UPDATE produk SET nama_produk = '$nm_brg', harga = '$hrg_brg', stok = '$st_brg', deskripsi = '$desc_brg', foto_produk = '$gbr_brg' WHERE id_produk = '$id_brg'");
       echo "<script>window.location='?page=barang';</script>";
     } else {
       echo "<script>alert('Upload Gambar Gagal!')</script>";
