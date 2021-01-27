@@ -1,7 +1,28 @@
 <?php
+session_start();
 ob_start();
 require_once ('../koneksi/+koneksi.php');
 require_once ('../models/database.php');
+
+    //set cookie
+    if (isset($_COOKIE['id']) && isset($_COOKIE['key']) ) {
+      $id = $_COOKIE['id'];
+      $key = $_COOKIE['key'];
+
+      //ambil username berdasarkan id
+      $result = mysqli_query($koneksi, "SELECT username FROM admin WHERE id_admin = $id");
+      $data = mysqli_fetch_assoc($result);
+      
+      //cek cookie dan username
+      if ($key === hash('sha256', $data['username'])) {
+          $_SESSION['login'] = true;
+      }
+  }
+
+if (!isset($_SESSION["login"])) {
+  header('Location: ../login.php');
+  exit;
+}
 
 $connection = new Database($host,$user,$pass,$database);
 ?>
