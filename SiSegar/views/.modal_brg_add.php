@@ -3,7 +3,7 @@ require_once '../koneksi/koneksi.php';
 ?>
 <h2>Tambah Produk</h2>
 
-<form action="../models/proses_add.php" method="post" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="">Nama Produk</label>
         <input type="text" name="nama_brg" id="nama_brg" class="form-control" required>
@@ -40,5 +40,25 @@ require_once '../koneksi/koneksi.php';
         <label for="">Foto Produk</label>
         <input type="file" name="foto" id="foto" class="form-control" required>
     </div>
-    <button type="submit" name="tambah" class="btn btn-primary">Simpan</button>
+    <button type="submit" name="save" class="btn btn-primary">Simpan</button>
 </form>
+<?php
+if (isset($_POST['save'])) {
+    $nama_brg = trim(mysqli_real_escape_string($koneksi, $_POST['nama_brg']));
+    $harga_brg = trim(mysqli_real_escape_string($koneksi, $_POST['harga_brg']));
+    $stok_brg = trim(mysqli_real_escape_string($koneksi, $_POST['stok_brg']));
+    $ktg = trim(mysqli_real_escape_string($koneksi, $_POST['ktg']));
+    $berat = trim(mysqli_real_escape_string($koneksi, $_POST['berat']));
+    $deskripsi = trim(mysqli_real_escape_string($koneksi, $_POST['deskripsi']));
+    $tanggal = date("Y-m-d");
+
+    $extensi = explode(".", $_FILES['foto']['name']);
+    $pict = "brg-".round(microtime(true)).".".end($extensi);
+    $sumber = $_FILES['foto']['tmp_name'];
+    move_uploaded_file($sumber, "../assets/img/barang/".$pict);
+
+    mysqli_query($koneksi, "INSERT INTO `produk`(`id_produk`, `id_kategori`, `nama_produk`, `harga`, `stok`, `berat`, `foto_produk`, `deskripsi`, `tgl_masuk`) VALUES (null,$ktg,'$nama_brg',$harga_brg,$stok_brg,$berat,'$pict','$deskripsi', '$tanggal')") or die (mysqli_error($koneksi));
+
+    echo "<script>window.location='?page=barang';</script>";
+}
+?>

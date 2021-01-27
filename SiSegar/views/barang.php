@@ -45,7 +45,7 @@ if(@$_GET['act'] == ''){
                   <td><?php echo $data->stok; ?></td>
                   <td><?php echo $data->nama_kategori; ?></td>
                   <td align="center">
-                    <img src="assets/img/barang/<?php echo $data->$foto_produk;?>" width="70px">
+                    <img src="../assets/img/barang/<?php echo $data->foto_produk;?>" width="70px">
                   </td>
                   <td><?php echo $data->deskripsi; ?></td>
                   <td><?=date('d F Y', strtotime($data->tgl_masuk)); ?></td>
