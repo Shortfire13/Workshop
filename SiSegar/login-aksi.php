@@ -25,7 +25,7 @@ require 'koneksi/koneksi.php';
                 setcookie('key', hash('sha256', $data['username_mitra'], time() + 3600));
             }
 
-            header("location:mitra/index.php?pesan=Login Mitra Berhasil");
+            header("location:admin/index.php?pesan=Login Mitra Berhasil");
         } else {
             header("location:login.php?pesan=gagal");
         }
