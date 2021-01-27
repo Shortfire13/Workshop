@@ -24,9 +24,9 @@ class Barang {
         return $query;
     }
 
-    public function tambah($nama_produk, $harga, $stok, $foto_produk , $deskripsi){
+    public function tambah($id_kategori, $nama_produk, $harga, $stok, $berat, $foto_produk , $deskripsi){
         $db = $this->mysqli->conn;
-        $db->query("INSERT INTO produk VALUES ('','$nama_produk','$harga','$stok','$foto_produk','$deskripsi', now())") or die ($db->error); 
+        $db->query("INSERT INTO produk VALUES ('','$id_kategori','$nama_produk','$harga','$stok','$berat','$foto_produk','$deskripsi', now())") or die ($db->error); 
     }
 
     public function edit($sql) {
