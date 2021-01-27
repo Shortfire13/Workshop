@@ -1,7 +1,7 @@
 <?php
 ob_start();
-require_once ('koneksi/+koneksi.php');
-require_once ('models/database.php');
+require_once ('../koneksi/+koneksi.php');
+require_once ('../models/database.php');
 
 $connection = new Database($host,$user,$pass,$database);
 ?>
@@ -13,15 +13,15 @@ $connection = new Database($host,$user,$pass,$database);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Mitra SiSEGAR</title>
+    <title>ADMIN SiSEGAR</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/datatables/datatables.min.css"/>
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/datatables/datatables.min.css"/>
 
     <!-- Add custom CSS here -->
-    <link href="assets/css/sb-admin.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/fontawesome-free/css/all.min.css">
+    <link href="../assets/css/sb-admin.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/fontawesome-free/css/all.min.css">
   </head>
 
   <body>
@@ -39,7 +39,7 @@ $connection = new Database($host,$user,$pass,$database);
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="">
-              <img src="assets/img/logo/logofix.png" width="85" height="30">
+              <img src="../assets/img/logo/logofix.png" width="85" height="30">
           </a>
         </div>
 
@@ -48,6 +48,7 @@ $connection = new Database($host,$user,$pass,$database);
           <ul class="nav navbar-nav side-nav">
             <li><a href="?page=dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
             <li><a href="?page=barang"><i class="fas fa-truck"></i> Data Barang</a></li>
+            <li><a href="?page=pembelian"><i class="fas fa-shopping-cart"></i> Data Pembelian</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right navbar-user">
@@ -65,14 +66,20 @@ $connection = new Database($host,$user,$pass,$database);
         </div><!-- /.navbar-collapse -->
       </nav>
 
-      <script src="assets/js/jquery-1.10.2.js"></script>
+      <script src="../assets/js/jquery-1.10.2.js"></script>
       <div id="page-wrapper">
 
       <?php
         if(@$_GET['page'] == 'dashboard' || @$_GET['page'] == ''){
-          include "views/dashboard.php";
+          include "../views/dashboard.php";
         } elseif (@$_GET['page'] == 'barang') {
-           include "views/barang.php";
+           include "../views/barang.php";
+        } elseif (@$_GET['page'] == 'pembelian') {
+          include "../views/pembelian.php";
+        } elseif (@$_GET['page'] == 'tambahproduk') {
+          include "../views/.modal_brg_add.php";
+        }elseif (@$_GET['page'] == 'detail') {
+          include "../views/detail.php";
         }
       ?>
 
@@ -81,8 +88,8 @@ $connection = new Database($host,$user,$pass,$database);
     </div><!-- /#wrapper -->
 
     <!-- JavaScript -->
-    <script src="assets/js/bootstrap.js"></script>
-    <script type="text/javascript" src="assets/datatables/datatables.min.js"></script>
+    <script src="../assets/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../assets/datatables/datatables.min.js"></script>
     <script type="text/javascript">
       $(document).ready( function () {
           $('#datatables').DataTable();
