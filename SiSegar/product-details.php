@@ -137,7 +137,7 @@
                   </ol>
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img class="d-block w-100 image-size" src="assets/images/<?php echo $data['foto_produk'] ?>" alt="First slide">
+                      <img class="d-block w-100 image-size" src="assets/img/barang/<?php echo $data['foto_produk'] ?>" alt="First slide">
                     </div>
                   </div>
                 </div>
