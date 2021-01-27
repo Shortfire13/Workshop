@@ -53,14 +53,14 @@
         $("#modal-edit #harga").val(hrgbrg);
         $("#modal-edit #stok").val(stcbrg); 
         $("#modal-edit #deskripsi").val(descbrg);
-        $("#modal-edit #pict").attr("src", "assets/img/barang/"+gbrbrg);
+        $("#modal-edit #pict").attr("src", "../assets/img/barang/"+gbrbrg);
     })
 
     $(document).ready(function(e){
         $("#form").on("submit", (function(e) {
             e.preventDefault();
             $.ajax({
-                url : 'models/proses_edit_barang.php',
+                url : '../models/proses_edit_barang.php',
                 type : 'POST',
                 data : new FormData(this),
                 contentType : false,

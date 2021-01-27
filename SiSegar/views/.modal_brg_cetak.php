@@ -46,7 +46,7 @@
         </form>
     </div>
     <div class="modal-footer">
-      <a href="./report/cetak_barang.php" target="_blank" class="btn btn-primary btn-sm">Cetak Semua Data</a>
+      <a href="../report/cetak_barang.php" target="_blank" class="btn btn-primary btn-sm">Cetak Semua Data</a>
     </div>
 </div>
 </div>

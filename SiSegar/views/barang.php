@@ -1,5 +1,5 @@
 <?php
-include "models/m_barang.php";
+include "../models/m_barang.php";
 
 $brg = new Barang($connection);
 
@@ -61,12 +61,11 @@ if(@$_GET['act'] == ''){
               </tbody>
               </table>
             </div>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambah"><i class="fa fa-plus"></i> Tambah Data</button>
+            <a href="index.php?page=tambahproduk" type="button" class="btn btn-primary" ><i class="fa fa-plus"></i> Tambah Data</a>
             <button type="button" class="btn btn-default" data-toggle="modal" data-target="#cetakpdf"><i class="fa fa-print"></i> Cetak PDF</button>
         <!-- End Table Data -->
           
           <?php
-            include ".modal_brg_add.php";
             include ".modal_brg_edit.php";
             include ".modal_brg_cetak.php";
           ?>
@@ -75,7 +74,7 @@ if(@$_GET['act'] == ''){
 <?php
 } else if (@$_GET['act'] == 'del') {
   $gbr_awal = $brg->tampil($_GET['id'])->fetch_object()->foto_produk;
-  unlink("assets/img/barang/".$gbr_awal);
+  unlink("../assets/img/barang/".$gbr_awal);
 
   $brg->hapus($_GET['id']);
   header("location: ?page=barang");
