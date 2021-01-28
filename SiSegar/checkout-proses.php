@@ -8,22 +8,6 @@
     $telepon = $_POST['telepon'];
     $total = $_POST['total'];
 
-    //cek stok
-    $sql_cek_stok = "SELECT * FROM keranjang inner join produk on keranjang.id_produk = produk.id_produk where keranjang.id_user=$id_user";
-    $query_cek_stok = mysqli_query($koneksi, $sql_cek_stok);
-    while($data_cek_stok = mysqli_fetch_array($query_cek_stok)){
-        if(($data_cek_stok["stok"] - $data_cek_stok["jumlah"]) < 0){
-            $nama_barang = $data_cek_stok['nama_produk'];
-            header("Location: keranjang.php?status=stok&barang=".$nama_barang);
-            return 0;
-        }else{
-            // Mengurangi stok pada produk
-            $stok_sisa = $data_cek_stok["stok"] - $data_cek_stok["jumlah"];
-            $id_produk = $data_cek_stok['id_produk'];
-            $sql_stok = "UPDATE produk SET stok=$stok_sisa WHERE id_produk=$id_produk";
-            $query_stok = mysqli_query($koneksi, $sql_stok);
-        }
-    }
 
     //menambah transaksi
     $sql_transaksi = "INSERT INTO transaksi VALUES(NULL, $id, '$tanggal', '$status', '$lokasi',  '$telepon', $total)";
@@ -52,4 +36,29 @@
     $sql_hapus = "DELETE FROM keranjang WHERE id_user = $id";
     $query_hapus = mysqli_query($koneksi,$sql_hapus);
     header("Location: products.php?status=done");
+
+        //cek stok
+        $sql_cek_keranjang = "SELECT * FROM transaksi WHERE id_transaksi = (SELECT MAX(id_transaksi) FROM transaksi)";
+        $query_cek_keranjang = mysqli_query($koneksi, $sql_cek_keranjang);
+        $data_cek_keranjang = mysqli_fetch_array($query_cek_keranjang);
+        $id_transaksi = $data_cek_keranjang['id_transaksi'];
+    
+        $sql_cek_stok = "SELECT * FROM ((detail_transaksi inner join produk on detail_transaksi.id_produk = produk.id_produk) inner join transaksi on detail_transaksi.id_transaksi = transaksi.id_transaksi) where transaksi.id_user=$id AND transaksi.id_transaksi = $id_transaksi";
+        $query_cek_stok = mysqli_query($koneksi, $sql_cek_stok);
+        $data_cek_stok = mysqli_fetch_array($query_cek_stok);
+        while($data_cek_stok){
+            if(($data_cek_stok["stok"] - $data_cek_stok["jumlah"]) < 0){
+                $nama_barang = $data_cek_stok['nama_produk'];
+                header("Location: keranjang.php?status=stok&barang=".$nama_barang);
+                return 0;
+            }else{
+                // Mengurangi stok pada produk
+                $stok_sisa = $data_cek_stok["stok"] - $data_cek_stok["jumlah"];
+                $id_produk = $data_cek_stok['id_produk'];
+                $sql_stok = "UPDATE produk SET stok = $stok_sisa WHERE id_produk=$id_produk";
+                $query_stok = 
+                mysqli_query($koneksi, $sql_stok);
+            }
+        }
+    
 ?>
