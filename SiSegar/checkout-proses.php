@@ -32,10 +32,7 @@
     }
 
 
-    // Menghapus data keranjang ketika sudah terbeli
-    $sql_hapus = "DELETE FROM keranjang WHERE id_user = $id";
-    $query_hapus = mysqli_query($koneksi,$sql_hapus);
-    header("Location: products.php?status=done");
+
 
         //cek stok
         $sql_cek_keranjang = "SELECT * FROM transaksi WHERE id_transaksi = (SELECT MAX(id_transaksi) FROM transaksi)";
@@ -60,5 +57,10 @@
                 mysqli_query($koneksi, $sql_stok);
             }
         }
+
+            // Menghapus data keranjang ketika sudah terbeli
+    $sql_hapus = "DELETE FROM keranjang WHERE id_user = $id";
+    $query_hapus = mysqli_query($koneksi,$sql_hapus);
+    header("Location: products.php?status=done");
     
 ?>
